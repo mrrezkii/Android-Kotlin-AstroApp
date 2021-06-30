@@ -8,5 +8,6 @@
     <string name="jadwal">Jadwal</string>
     <string name="profil">Profil</string>
 
-    <string name="location_pin">Mencari Lokasi Rumah Sakit Terdekat</string>
+    <string name="location_pin">Mencari lokasi rumah sakit terdekat</string>
+    <string name="no_records_found">Tidak ada jadwal yang ditemukan</string>
 </resources>
