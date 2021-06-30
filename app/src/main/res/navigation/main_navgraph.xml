@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main_navgraph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navgraph"
+    app:startDestination="@id/berandaFragment">
 
+    <fragment
+        android:id="@+id/berandaFragment"
+        android:name="com.kedirilagi.astro.data.view.fragment.BerandaFragment"
+        android:label="fragment_beranda"
+        tools:layout="@layout/fragment_beranda" />
+    <fragment
+        android:id="@+id/jadwalFragment"
+        android:name="com.kedirilagi.astro.data.view.fragment.JadwalFragment"
+        android:label="fragment_jadwal"
+        tools:layout="@layout/fragment_jadwal" />
+    <fragment
+        android:id="@+id/petunjukFragment"
+        android:name="com.kedirilagi.astro.data.view.fragment.PetunjukFragment"
+        android:label="fragment_petunjuk"
+        tools:layout="@layout/fragment_petunjuk" />
+    <fragment
+        android:id="@+id/profilFragment"
+        android:name="com.kedirilagi.astro.data.view.fragment.ProfilFragment"
+        android:label="fragment_profil"
+        tools:layout="@layout/fragment_profil" />
 </navigation>

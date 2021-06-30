@@ -1,10 +1,9 @@
-package com.kedirilagi.astro.data.view.activty
+package com.kedirilagi.astro.data.view.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.kedirilagi.astro.MainActivity
 import com.kedirilagi.astro.databinding.ActivitySplashScreenBinding
 import kotlinx.coroutines.*
 
