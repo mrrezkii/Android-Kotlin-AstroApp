@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Astro</string>
+    <string name="subtitle">Your Personal Smart Assistant</string>
+
+    <!--Bottom Nav-->
+    <string name="beranda">Beranda</string>
+    <string name="petunjuk">Petunjuk</string>
+    <string name="kalender">Kalender</string>
+    <string name="profil">Profil</string>
 </resources>
