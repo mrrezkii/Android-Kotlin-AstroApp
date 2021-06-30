@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_beranda"
+        android:icon="@drawable/home_listener"
+        android:title="@string/beranda" />
+
+    <item
+        android:id="@+id/navigation_petunjuk"
+        android:icon="@drawable/direction_listener"
+        android:title="@string/petunjuk" />
+
+    <item android:title="" />
+
+    <item
+        android:id="@+id/navigation_jadwal"
+        android:icon="@drawable/calender_listener"
+        android:title="@string/jadwal" />
+
+    <item
+        android:id="@+id/navigation_profil"
+        android:icon="@drawable/profile_listener"
+        android:title="@string/profil" />
+
+
+</menu>
