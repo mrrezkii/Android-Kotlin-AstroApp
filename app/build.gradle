@@ -10,6 +10,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.kedirilagi.astro"
         minSdkVersion 22
         targetSdkVersion 30
@@ -78,7 +79,6 @@ dependencies {
     def kodein_version = "6.4.0"
     implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
     implementation "org.kodein.di:kodein-di-framework-android-x:$kodein_version"
-
     // Utils
     implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation 'com.github.Akshay-Katariya:CurveBottomBar:1.0'
