@@ -15,9 +15,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivArtikel"
-            android:layout_width="238dp"
+            android:layout_width="187dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:scaleType="centerCrop"
             android:src="@drawable/image_artikel_dummy" />
 
@@ -27,7 +26,6 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:layout_margin="@dimen/margin_normal"
-            android:layout_weight="3"
             android:fontFamily="@font/open_sans_semibold"
             android:text="Cari Tahu Apa Itu Penyakit Stroke"
             android:textColor="#FFF"
