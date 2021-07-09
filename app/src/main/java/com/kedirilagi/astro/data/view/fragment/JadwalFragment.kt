@@ -2,11 +2,11 @@ package com.kedirilagi.astro.data.view.fragment
 
 import android.annotation.SuppressLint
 import android.app.TimePickerDialog
-import android.app.TimePickerDialog.OnTimeSetListener
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -34,6 +34,7 @@ class JadwalFragment : Fragment() {
     }
 
     private fun setupView() {
+        binding.tvLayoutToolbar.tvToolbar.text = "Jadwal"
         binding.appCompatImageView.setOnClickListener {
             setupBottomSheet()
         }
@@ -57,7 +58,7 @@ class JadwalFragment : Fragment() {
         tvTimePicker!!.setOnClickListener {
             val timePickerDialog = TimePickerDialog(
                 requireActivity(),
-                OnTimeSetListener { view, hourOfDay, minute ->
+                { _, hourOfDay, minute ->
                     tvTimePicker.text = "$hourOfDay:$minute"
                 },
                 mHour,
@@ -69,6 +70,30 @@ class JadwalFragment : Fragment() {
 
         bottomSheetDialog.setContentView(bottomSheetView)
         bottomSheetDialog.show()
+    }
+
+    @Suppress("DEPRECATION")
+    override fun onStart() {
+        super.onStart()
+        val window = requireActivity().window
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = requireActivity().resources.getColor(R.color.colorPrimaryDark)
+
+        val view = window.decorView
+        view.systemUiVisibility = 0
+    }
+
+    @Suppress("DEPRECATION")
+    override fun onPause() {
+        super.onPause()
+        val window = requireActivity().window
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = requireActivity().resources.getColor(R.color.colorWhite)
+
+        val view = window.decorView
+        view.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
     }
 
 

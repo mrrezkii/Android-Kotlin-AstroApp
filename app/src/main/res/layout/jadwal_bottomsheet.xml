@@ -23,7 +23,7 @@
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/open_sans_bold"
         android:text="Tambah"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +36,7 @@
         android:layout_marginTop="80dp"
         android:fontFamily="@font/open_sans_semibold"
         android:text="Aktivitas"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -61,7 +61,7 @@
         android:layout_marginTop="40dp"
         android:fontFamily="@font/open_sans_semibold"
         android:text="Lokasi"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_aktivitas" />
@@ -86,7 +86,7 @@
         android:layout_marginTop="40dp"
         android:fontFamily="@font/open_sans_semibold"
         android:text="Tangal"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_lokasi" />
@@ -99,7 +99,7 @@
         android:layout_marginEnd="32dp"
         android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
         android:text="Pilih Jam"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_lokasi" />
