@@ -8,8 +8,8 @@
     app:cardElevation="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
         android:paddingVertical="12dp"
         android:paddingStart="16dp"
@@ -17,9 +17,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivAktivitas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
+            android:layout_width="17dp"
+            android:layout_height="17dp"
             android:src="@drawable/ic_makan"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -47,6 +46,7 @@
             app:layout_constraintTop_toBottomOf="@+id/ivAktivitas" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvJam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"

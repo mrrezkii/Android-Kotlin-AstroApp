@@ -79,6 +79,11 @@ dependencies {
     def kodein_version = "6.4.0"
     implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
     implementation "org.kodein.di:kodein-di-framework-android-x:$kodein_version"
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    
     // Utils
     implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation 'com.github.Akshay-Katariya:CurveBottomBar:1.0'
