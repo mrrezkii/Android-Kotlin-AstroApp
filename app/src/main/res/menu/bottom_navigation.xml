@@ -3,24 +3,24 @@
 
     <item
         android:id="@+id/navigation_beranda"
-        android:icon="@drawable/home_listener"
+        android:icon="@drawable/ic_home"
         android:title="@string/beranda" />
 
     <item
         android:id="@+id/navigation_petunjuk"
-        android:icon="@drawable/direction_listener"
+        android:icon="@drawable/ic_direction"
         android:title="@string/petunjuk" />
 
     <item android:title="" />
 
     <item
         android:id="@+id/navigation_jadwal"
-        android:icon="@drawable/calender_listener"
+        android:icon="@drawable/ic_calender"
         android:title="@string/jadwal" />
 
     <item
         android:id="@+id/navigation_profil"
-        android:icon="@drawable/profile_listener"
+        android:icon="@drawable/ic_profile"
         android:title="@string/profil" />
 
 

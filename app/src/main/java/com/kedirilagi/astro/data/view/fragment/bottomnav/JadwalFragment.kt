@@ -1,4 +1,4 @@
-package com.kedirilagi.astro.data.view.fragment
+package com.kedirilagi.astro.data.view.fragment.bottomnav
 
 import android.annotation.SuppressLint
 import android.app.TimePickerDialog
@@ -34,7 +34,7 @@ class JadwalFragment : Fragment() {
     }
 
     private fun setupView() {
-        binding.tvLayoutToolbar.tvToolbar.text = "Jadwal"
+        binding.tvLayoutToolbar.tvToolbar.text = getString(R.string.jadwal)
         binding.appCompatImageView.setOnClickListener {
             setupBottomSheet()
         }
@@ -45,7 +45,7 @@ class JadwalFragment : Fragment() {
         val bottomSheetDialog =
             BottomSheetDialog(requireActivity(), R.style.BottomSheetDialogTheme)
         val bottomSheetView = LayoutInflater.from(activity).inflate(
-            R.layout.jadwal_bottomsheet,
+            R.layout.bottomsheet_jadwal,
             requireActivity().findViewById(R.id.jadwal_bottomsheet)
         )
 
@@ -95,6 +95,4 @@ class JadwalFragment : Fragment() {
         val view = window.decorView
         view.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
     }
-
-
 }
