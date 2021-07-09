@@ -9,7 +9,14 @@
         android:id="@+id/berandaFragment"
         android:name="com.kedirilagi.astro.data.view.fragment.bottomnav.BerandaFragment"
         android:label="fragment_beranda"
-        tools:layout="@layout/fragment_beranda" />
+        tools:layout="@layout/fragment_beranda">
+        <action
+            android:id="@+id/action_berandaFragment_to_statusAmanFragment"
+            app:destination="@id/statusAmanFragment" />
+        <action
+            android:id="@+id/action_berandaFragment_to_statusBahayaFragment"
+            app:destination="@id/statusBahayaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/jadwalFragment"
         android:name="com.kedirilagi.astro.data.view.fragment.bottomnav.JadwalFragment"
@@ -25,4 +32,13 @@
         android:name="com.kedirilagi.astro.data.view.fragment.bottomnav.ProfilFragment"
         android:label="fragment_profil"
         tools:layout="@layout/fragment_profil" />
+    <fragment
+        android:id="@+id/statusAmanFragment"
+        android:name="com.kedirilagi.astro.data.view.fragment.StatusAmanFragment"
+        android:label="StatusAmanFragment" />
+    <fragment
+        android:id="@+id/statusBahayaFragment"
+        android:name="com.kedirilagi.astro.data.view.fragment.StatusBahayaFragment"
+        android:label="fragment_status_bahaya"
+        tools:layout="@layout/fragment_status_bahaya" />
 </navigation>

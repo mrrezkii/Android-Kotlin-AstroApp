@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.kedirilagi.astro.R
 import com.kedirilagi.astro.data.model.AktivitasModel
 import com.kedirilagi.astro.data.model.ArtikelModel
 import com.kedirilagi.astro.data.view.adapter.AktivitasAdapter
@@ -34,6 +36,14 @@ class BerandaFragment : Fragment() {
     private fun setupView() {
         setAdapterAktivitas()
         setAdapterArtikel()
+
+        binding.layoutSafe.root.setOnClickListener {
+            findNavController().navigate(R.id.action_berandaFragment_to_statusAmanFragment)
+        }
+
+        binding.layoutEmergency.root.setOnClickListener {
+            findNavController().navigate(R.id.action_berandaFragment_to_statusBahayaFragment)
+        }
     }
 
     private fun setAdapterAktivitas() {
