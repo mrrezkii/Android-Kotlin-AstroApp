@@ -211,6 +211,7 @@
             app:layout_constraintTop_toBottomOf="@+id/list_aktivitas" />
 
         <include
+            android:id="@+id/layoutSafe"
             layout="@layout/layout_status_aman"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -219,6 +220,7 @@
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView7" />
 
         <include
+            android:id="@+id/layoutEmergency"
             layout="@layout/layout_status_darurat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -226,6 +228,29 @@
             android:layout_marginTop="20dp"
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView7" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:text="Artikel Buat Kamu"
+            android:textColor="@color/colorBlack"
+            android:textSize="14dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutSafe" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_artikel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="28dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView8"
+            tools:layout_editor_absoluteX="28dp"
+            tools:listitem="@layout/adapter_artikel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
