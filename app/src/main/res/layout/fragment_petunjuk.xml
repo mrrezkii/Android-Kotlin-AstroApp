@@ -4,14 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/tvLayoutToolbar"
-        layout="@layout/toolbar_noback"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/gif"
         android:layout_width="398dp"
@@ -23,7 +15,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.214"
+        app:layout_constraintVertical_bias="0.116"
         app:lottie_autoPlay="true"
         app:lottie_fileName="location-pin.json"
         app:lottie_loop="true" />

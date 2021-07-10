@@ -1,20 +1,20 @@
 package com.kedirilagi.astro.data.view.fragment.bottomnav
 
-import android.os.Build
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import com.kedirilagi.astro.R
+import com.kedirilagi.astro.data.view.activity.MapsActivity
 import com.kedirilagi.astro.databinding.FragmentPetunjukBinding
+import kotlinx.coroutines.*
 
 
 class PetunjukFragment : Fragment() {
 
     private lateinit var binding: FragmentPetunjukBinding
+    private val activityScope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,32 +31,17 @@ class PetunjukFragment : Fragment() {
     }
 
     private fun setupView() {
-        binding.tvLayoutToolbar.tvToolbar.text = getString(R.string.petunjuk)
+        activityScope.launch {
+            delay(3000)
+
+            val intent = Intent(requireContext(), MapsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
-    @Suppress("DEPRECATION")
-    override fun onStart() {
-        super.onStart()
-        val window = requireActivity().window
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = requireActivity().resources.getColor(R.color.colorPrimaryDark)
-
-        val view = window.decorView
-        view.systemUiVisibility = 0
-    }
-
-    @RequiresApi(Build.VERSION_CODES.M)
-    @Suppress("DEPRECATION")
     override fun onPause() {
         super.onPause()
-        val window = requireActivity().window
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = requireActivity().resources.getColor(R.color.colorWhite)
-
-        val view = window.decorView
-        view.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        activityScope.cancel()
     }
 
 }
