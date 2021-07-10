@@ -27,7 +27,7 @@
             android:layout_gravity="center_vertical"
             android:layout_margin="@dimen/margin_normal"
             android:fontFamily="@font/open_sans_semibold"
-            android:text="Cari Tahu Apa Itu Penyakit Stroke"
+            android:text="@string/dummy_title_article"
             android:textColor="#FFF"
             android:textSize="12sp" />
 

@@ -27,9 +27,9 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="45dp"
             android:fontFamily="@font/open_sans_bold"
-            android:text="Selamat Datang"
+            android:text="@string/selamat_datang"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="24dp"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,9 +40,9 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="17dp"
             android:fontFamily="@font/open_sans_bold"
-            android:text="Rabu"
+            android:text="@string/dummy_hari"
             android:textColor="@color/colorBlack"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvSelamatDatang" />
 
@@ -53,9 +53,9 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="3dp"
             android:fontFamily="@font/open_sans"
-            android:text="10 Juni 2021"
+            android:text="@string/dummy_tanggal"
             android:textColor="@color/colorGrey"
-            android:textSize="14dp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvHari" />
 
@@ -66,9 +66,9 @@
             android:layout_marginStart="17dp"
             android:layout_marginTop="28dp"
             android:fontFamily="@font/open_sans_bold"
-            android:text="Jadwal Kamu"
+            android:text="@string/jadwal_kamu"
             android:textColor="@color/colorBlack"
-            android:textSize="14dp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTanggal" />
 
@@ -104,7 +104,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="28dp"
                 android:fontFamily="@font/open_sans_bold"
-                android:text="Rabu"
+                android:text="@string/dummy_hari"
                 android:textColor="@color/colorWhite"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -127,7 +127,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="12dp"
                 android:fontFamily="@font/open_sans_semibold"
-                android:text="Kontrol Dokter Sahrial"
+                android:text="@string/dummy_title_jadwal"
                 android:textColor="@color/colorWhite"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/view"
@@ -139,7 +139,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="3dp"
                 android:fontFamily="@font/open_sans"
-                android:text="Kimia Farma, Jalan Stasiun Kediri"
+                android:text="@string/dummy_address"
                 android:textColor="@color/colorWhite"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/view"
@@ -154,7 +154,7 @@
                 android:fontFamily="@font/open_sans_semibold"
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="2dp"
-                android:text="10:10"
+                android:text="@string/dummy_jam"
                 android:textColor="@color/colorWhite"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -169,9 +169,9 @@
             android:layout_marginStart="17dp"
             android:layout_marginTop="28dp"
             android:fontFamily="@font/open_sans_bold"
-            android:text="Riwayat Aktivitas"
+            android:text="@string/riwayat_aktivitas"
             android:textColor="@color/colorBlack"
-            android:textSize="14dp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
@@ -204,9 +204,9 @@
             android:layout_marginStart="17dp"
             android:layout_marginTop="28dp"
             android:fontFamily="@font/open_sans_bold"
-            android:text="Status Aktivitas"
+            android:text="@string/status_aktivitas"
             android:textColor="@color/colorBlack"
-            android:textSize="14dp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/list_aktivitas" />
 
@@ -236,9 +236,9 @@
             android:layout_marginStart="17dp"
             android:layout_marginTop="28dp"
             android:fontFamily="@font/open_sans_bold"
-            android:text="Artikel Buat Kamu"
+            android:text="@string/artikel_buat_kamu"
             android:textColor="@color/colorBlack"
-            android:textSize="14dp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layoutSafe" />
 

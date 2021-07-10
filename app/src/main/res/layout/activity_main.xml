@@ -28,6 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:tint="@color/colorWhite"
+        android:contentDescription="@string/public_button"
         tools:ignore="UnusedAttribute" />
 
     <com.akshay.library.CurveBottomBar

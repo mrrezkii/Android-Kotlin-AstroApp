@@ -12,6 +12,32 @@
     <string name="no_records_found">Tidak ada jadwal yang ditemukan</string>
 
     <string name="toolbar_dummy">toolbar</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="public_button">public button</string>
+    <string name="makan">Makan</string>
+
+    <string name="dummy_title_article">Cari Tahu Apa Itu Penyakit Stroke</string>
+    <string name="dummy_title_jadwal">Kontrol Dokter Sahrial</string>
+    <string name="dummy_address">Kimia Farma, Jalan Stasiun Kediri</string>
+    <string name="dummy_hari">Rabu</string>
+    <string name="dummy_jam">10:10</string>
+    <string name="dummy_tanggal">10 Juni 2021</string>
+
+    <string name="tambah">Tambah</string>
+    <string name="aktivitas">Aktivitas</string>
+    <string name="lokasi">Lokasi</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="pilih_jam">Pilih Jam</string>
+
+    <string name="selamat_datang">Selamat Datang</string>
+    <string name="jadwal_kamu">Jadwal Kamu</string>
+    <string name="riwayat_aktivitas">Riwayat Aktivitas</string>
+    <string name="status_aktivitas">Status Aktivitas</string>
+    <string name="artikel_buat_kamu">Artikel Buat Kamu</string>
+
+    <string name="status_aman_caption">Pasien dalam keadaan aman</string>
+    <string name="status_aman_subcaption">Tidak ada bahaya terdeteksi</string>
+    <string name="status_bahaya_caption">Pasien dalam bahaya</string>
+    <string name="status_bahaya_subcaption">Ketuk untuk mengetahui informasi lebih lanjut</string>
+    <string name="tidak_ada_bahaya_terdeteksi">Tidak ada bahaya terdeteksi</string>
 </resources>

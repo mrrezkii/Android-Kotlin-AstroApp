@@ -2,12 +2,14 @@ package com.kedirilagi.astro.data.view.fragment.bottomnav
 
 import android.annotation.SuppressLint
 import android.app.TimePickerDialog
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.kedirilagi.astro.R
@@ -22,7 +24,7 @@ class JadwalFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentJadwalBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -84,6 +86,7 @@ class JadwalFragment : Fragment() {
         view.systemUiVisibility = 0
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     @Suppress("DEPRECATION")
     override fun onPause() {
         super.onPause()

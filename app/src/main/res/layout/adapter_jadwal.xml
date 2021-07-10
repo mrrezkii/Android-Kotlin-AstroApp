@@ -12,7 +12,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/open_sans_bold"
-        android:text="Rabu"
+        android:text="@string/dummy_hari"
         android:textColor="@color/colorPrimary"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/open_sans_semibold"
-        android:text="Kontrol Dokter Sahrial"
+        android:text="@string/dummy_title_jadwal"
         android:textColor="@color/colorBlack"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/view"
@@ -47,7 +47,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="3dp"
         android:fontFamily="@font/open_sans"
-        android:text="Kimia Farma, Jalan Stasiun Kediri"
+        android:text="@string/dummy_address"
         android:textColor="@color/colorGrey"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/view"
@@ -59,11 +59,10 @@
         android:layout_marginTop="56dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/open_sans_semibold"
-        android:text="10:10"
+        android:text="@string/dummy_jam"
         android:textColor="@color/colorBlack"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

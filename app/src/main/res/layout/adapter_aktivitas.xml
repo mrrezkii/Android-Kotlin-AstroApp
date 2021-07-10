@@ -29,9 +29,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:fontFamily="@font/open_sans_bold"
-            android:text="Makan"
             android:textColor="@color/colorWhite"
-            android:textSize="14dp"
+            android:text="@string/makan"
+            android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@+id/ivAktivitas"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,7 +54,7 @@
             android:fontFamily="@font/open_sans_semibold"
             android:paddingHorizontal="10dp"
             android:paddingVertical="2dp"
-            android:text="10:10"
+            android:text="@string/dummy_jam"
             android:textColor="@color/colorWhite"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/view"

@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="17dp"
             android:fontFamily="@font/open_sans_semibold"
-            android:text="Pasien dalam keadaaan aman"
+            android:text="@string/status_aman_caption"
             android:textColor="@color/colorBlack"
             app:layout_constraintStart_toEndOf="@+id/ivCondition"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +39,7 @@
             android:layout_marginStart="17dp"
             android:layout_marginTop="1dp"
             android:fontFamily="@font/open_sans"
-            android:text="Tidak ada bahaya terdeteksi oleh sensor"
+            android:text="@string/status_aman_subcaption"
             android:textColor="@color/colorBlack"
             app:layout_constraintStart_toEndOf="@+id/ivCondition"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />

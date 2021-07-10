@@ -34,9 +34,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/open_sans_semibold"
-        android:text="Tidak ada bahaya terdeteksi"
+        android:text="@string/tidak_ada_bahaya_terdeteksi"
         android:textColor="#FF5151"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gif" />

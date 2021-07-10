@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="17dp"
             android:fontFamily="@font/open_sans_semibold"
-            android:text="Pasien dalam bahaya"
+            android:text="@string/status_bahaya_caption"
             android:textColor="@color/colorBlack"
             app:layout_constraintStart_toEndOf="@+id/ivCondition"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,7 +39,7 @@
             android:layout_marginStart="17dp"
             android:layout_marginTop="1dp"
             android:fontFamily="@font/open_sans"
-            android:text="Ketuk untuk mengetahui informasi lebih lanjut"
+            android:text="@string/status_bahaya_subcaption"
             android:textColor="@color/colorBlack"
             app:layout_constraintStart_toEndOf="@+id/ivCondition"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />

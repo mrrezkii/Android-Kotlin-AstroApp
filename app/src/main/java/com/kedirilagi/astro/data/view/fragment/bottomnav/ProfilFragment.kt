@@ -1,10 +1,12 @@
 package com.kedirilagi.astro.data.view.fragment.bottomnav
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.kedirilagi.astro.R
 import com.kedirilagi.astro.databinding.FragmentProfilBinding
@@ -16,7 +18,7 @@ class ProfilFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentProfilBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -43,6 +45,7 @@ class ProfilFragment : Fragment() {
         view.systemUiVisibility = 0
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     @Suppress("DEPRECATION")
     override fun onPause() {
         super.onPause()
