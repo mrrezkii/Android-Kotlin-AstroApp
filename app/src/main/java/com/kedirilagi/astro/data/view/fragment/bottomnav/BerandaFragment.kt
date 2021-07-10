@@ -1,14 +1,14 @@
 package com.kedirilagi.astro.data.view.fragment.bottomnav
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.kedirilagi.astro.R
 import com.kedirilagi.astro.data.model.AktivitasModel
 import com.kedirilagi.astro.data.model.ArtikelModel
+import com.kedirilagi.astro.data.view.activity.StatusActivity
 import com.kedirilagi.astro.data.view.adapter.AktivitasAdapter
 import com.kedirilagi.astro.data.view.adapter.ArtikelAdapter
 import com.kedirilagi.astro.databinding.FragmentBerandaBinding
@@ -38,11 +38,15 @@ class BerandaFragment : Fragment() {
         setAdapterArtikel()
 
         binding.layoutSafe.root.setOnClickListener {
-            findNavController().navigate(R.id.action_berandaFragment_to_statusAmanFragment)
+            val intent = Intent(requireContext(), StatusActivity::class.java)
+            intent.putExtra("kondisi", true)
+            startActivity(intent)
         }
 
         binding.layoutEmergency.root.setOnClickListener {
-            findNavController().navigate(R.id.action_berandaFragment_to_statusBahayaFragment)
+            val intent = Intent(requireContext(), StatusActivity::class.java)
+            intent.putExtra("kondisi", false)
+            startActivity(intent)
         }
     }
 

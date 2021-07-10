@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Astro.NoActionBar">
+        <activity android:name=".data.view.activity.StatusActivity"></activity>
         <activity
             android:name=".data.view.activity.SplashScreenActivity"
             android:screenOrientation="portrait"
