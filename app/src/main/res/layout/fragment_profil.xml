@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent">
@@ -11,5 +12,134 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/ic_profile_rounded"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLayoutToolbar" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="@string/dummy_nama_user"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView5" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="45dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="@string/informasi_pasien"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView11" />
+
+    <include
+        android:id="@+id/layoutInformasiPasien"
+        layout="@layout/form_informasi_pasien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView12"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="@string/aktivitas_pasien"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutInformasiPasien" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvRiwayatAktivitas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorBackground"
+        android:drawableEnd="@drawable/ic_arrow_blue"
+        android:fontFamily="@font/open_sans"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="17dp"
+        android:paddingBottom="15dp"
+        android:text="@string/riwayat_aktivitas"
+        android:textColor="@color/colorBlue"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView13" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvRiwayatJatuh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="@color/colorBackground"
+        android:drawableEnd="@drawable/ic_arrow_blue"
+        android:fontFamily="@font/open_sans"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="17dp"
+        android:paddingBottom="15dp"
+        android:text="@string/riwayat_jatuh"
+        android:textColor="@color/colorBlue"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRiwayatAktivitas" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="@string/tentang_kami"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRiwayatJatuh" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTentangAstro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorBackground"
+        android:drawableEnd="@drawable/ic_arrow_blue"
+        android:fontFamily="@font/open_sans"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="17dp"
+        android:paddingBottom="15dp"
+        android:text="@string/tentang_astro"
+        android:textColor="@color/colorBlue"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView14" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

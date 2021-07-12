@@ -31,6 +31,7 @@
     <string name="selamat_datang">Selamat Datang</string>
     <string name="jadwal_kamu">Jadwal Kamu</string>
     <string name="riwayat_aktivitas">Riwayat Aktivitas</string>
+    <string name="riwayat_jatuh">Riwayat Jatuh</string>
     <string name="status_aktivitas">Status Aktivitas</string>
     <string name="artikel_buat_kamu">Artikel Buat Kamu</string>
 
@@ -45,4 +46,20 @@
     <string name="dummy_rumahsakit">Rumah Sakit Siloam Kebon Jeruk</string>
     <string name="dummy_rumahsakit_alamat">Jl. Perjuangan Kav.8, DKI Jakarta</string>
     <string name="dummy_rumahsakit_jarak">0.5 Km</string>
+
+    <string name="nama_pasien">Nama Pasien</string>
+    <string name="double_quote">:</string>
+    <string name="dummy_nama_pasien">Alvin Kusuma</string>
+    <string name="gender">Gender</string>
+    <string name="dummy_laki_laki">Laki - laki</string>
+    <string name="umur">Umur</string>
+    <string name="dummy_umur">35 Tahun</string>
+    <string name="jenis_stroke">Jenis Stroke</string>
+    <string name="dummy_jenis_stroke">Stroke Iskemik</string>
+
+    <string name="dummy_nama_user">Satrio Rahman Wicaksono</string>
+    <string name="informasi_pasien">Informasi Pasien</string>
+    <string name="aktivitas_pasien">Aktivitas Pasien</string>
+    <string name="tentang_kami">Tentang Kami</string>
+    <string name="tentang_astro">Tentang Astro</string>
 </resources>

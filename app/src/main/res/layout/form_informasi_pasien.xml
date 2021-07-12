@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorBackground"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        tools:ignore="UselessParent">
+
+        <TableRow
+            android:id="@+id/namaPasien"
+            android:layout_marginBottom="12dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/nama_pasien"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="35dp"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/double_quote"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNamaPasien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:text="@string/dummy_nama_pasien"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/genderPasien"
+            android:layout_marginBottom="12dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/gender"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="35dp"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/double_quote"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:text="@string/dummy_laki_laki"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/umurPasien"
+            android:layout_marginBottom="12dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/umur"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="35dp"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/double_quote"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUmur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:text="@string/dummy_umur"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/jenisStrokePasien"
+            android:layout_marginBottom="12dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/jenis_stroke"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="35dp"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/double_quote"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvJeniStroke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_semibold"
+                android:text="@string/dummy_jenis_stroke"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>
