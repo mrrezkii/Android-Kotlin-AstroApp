@@ -1,5 +1,6 @@
 package com.kedirilagi.astro.data.view.fragment.bottomnav
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +9,10 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.kedirilagi.astro.R
+import com.kedirilagi.astro.data.view.activity.RiwayatAktivitasActivity
+import com.kedirilagi.astro.data.view.activity.RiwayatJatuhActivity
+import com.kedirilagi.astro.data.view.activity.TentangAstroActivity
 import com.kedirilagi.astro.databinding.FragmentProfilBinding
 
 class ProfilFragment : Fragment() {
@@ -33,13 +36,13 @@ class ProfilFragment : Fragment() {
     private fun setupView() {
         binding.tvLayoutToolbar.tvToolbar.text = getString(R.string.profil)
         binding.tvRiwayatAktivitas.setOnClickListener {
-            findNavController().navigate(R.id.action_profilFragment_to_riwayatAktivitasFragment)
+            startActivity(Intent(requireContext(), RiwayatAktivitasActivity::class.java))
         }
         binding.tvRiwayatJatuh.setOnClickListener {
-            findNavController().navigate(R.id.action_profilFragment_to_riwayatJatuhFragment)
+            startActivity(Intent(requireContext(), RiwayatJatuhActivity::class.java))
         }
         binding.tvTentangAstro.setOnClickListener {
-            findNavController().navigate(R.id.action_profilFragment_to_tentangAstroFragment)
+            startActivity(Intent(requireContext(), TentangAstroActivity::class.java))
         }
     }
 

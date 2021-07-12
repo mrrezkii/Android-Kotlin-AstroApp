@@ -24,28 +24,5 @@
         android:id="@+id/profilFragment"
         android:name="com.kedirilagi.astro.data.view.fragment.bottomnav.ProfilFragment"
         android:label="fragment_profil"
-        tools:layout="@layout/fragment_profil">
-        <action
-            android:id="@+id/action_profilFragment_to_riwayatAktivitasFragment"
-            app:destination="@id/riwayatAktivitasFragment" />
-        <action
-            android:id="@+id/action_profilFragment_to_riwayatJatuhFragment"
-            app:destination="@id/riwayatJatuhFragment" />
-        <action
-            android:id="@+id/action_profilFragment_to_tentangAstroFragment"
-            app:destination="@id/tentangAstroFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/riwayatAktivitasFragment"
-        android:name="com.kedirilagi.astro.data.view.fragment.RiwayatAktivitasFragment"
-        android:label="RiwayatAktivitasFragment" />
-    <fragment
-        android:id="@+id/riwayatJatuhFragment"
-        android:name="com.kedirilagi.astro.data.view.fragment.RiwayatJatuhFragment"
-        android:label="fragment_riwayat_jatuh"
-        tools:layout="@layout/fragment_riwayat_jatuh" />
-    <fragment
-        android:id="@+id/tentangAstroFragment"
-        android:name="com.kedirilagi.astro.data.view.fragment.TentangAstroFragment"
-        android:label="TentangAstroFragment" />
+        tools:layout="@layout/fragment_profil" />
 </navigation>
