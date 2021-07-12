@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.kedirilagi.astro.R
 import com.kedirilagi.astro.databinding.FragmentProfilBinding
 
@@ -31,6 +32,15 @@ class ProfilFragment : Fragment() {
 
     private fun setupView() {
         binding.tvLayoutToolbar.tvToolbar.text = getString(R.string.profil)
+        binding.tvRiwayatAktivitas.setOnClickListener {
+            findNavController().navigate(R.id.action_profilFragment_to_riwayatAktivitasFragment)
+        }
+        binding.tvRiwayatJatuh.setOnClickListener {
+            findNavController().navigate(R.id.action_profilFragment_to_riwayatJatuhFragment)
+        }
+        binding.tvTentangAstro.setOnClickListener {
+            findNavController().navigate(R.id.action_profilFragment_to_tentangAstroFragment)
+        }
     }
 
     @Suppress("DEPRECATION")
