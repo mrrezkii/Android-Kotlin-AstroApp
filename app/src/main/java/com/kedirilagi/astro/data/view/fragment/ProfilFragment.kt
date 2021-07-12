@@ -1,4 +1,4 @@
-package com.kedirilagi.astro.data.view.fragment.bottomnav
+package com.kedirilagi.astro.data.view.fragment
 
 import android.content.Intent
 import android.os.Build
