@@ -2,7 +2,6 @@
     <string name="app_name">Astro</string>
     <string name="subtitle">Your Personal Smart Assistant</string>
 
-    <!--Bottom Nav-->
     <string name="beranda">Beranda</string>
     <string name="petunjuk">Petunjuk</string>
     <string name="jadwal">Jadwal</string>
@@ -41,4 +40,9 @@
     <string name="status_bahaya_subcaption">Ketuk untuk mengetahui informasi lebih lanjut</string>
     <string name="tidak_ada_bahaya_terdeteksi">Tidak ada bahaya terdeteksi</string>
     <string name="lokasi_kamu">Lokasi Kamu</string>
+    <string name="cari_rumah_sakit_terdekat">Cari Rumah Sakit Terdekat....</string>
+
+    <string name="dummy_rumahsakit">Rumah Sakit Siloam Kebon Jeruk</string>
+    <string name="dummy_rumahsakit_alamat">Jl. Perjuangan Kav.8, DKI Jakarta</string>
+    <string name="dummy_rumahsakit_jarak">0.5 Km</string>
 </resources>
