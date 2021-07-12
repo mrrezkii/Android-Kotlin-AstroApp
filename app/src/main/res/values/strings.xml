@@ -62,4 +62,8 @@
     <string name="aktivitas_pasien">Aktivitas Pasien</string>
     <string name="tentang_kami">Tentang Kami</string>
     <string name="tentang_astro">Tentang Astro</string>
+
+    <string name="jatuh_depan">Jatuh Depan</string>
+    <string name="deskripsi_riwayat_jatuh">Riwayat jatuh ditampilkan berdasarkan aktivitas sensor yang terpasang pada pasien.</string>
+    <string name="deskripsi_riwayat_aktivitas">Aktivitas yang ditampilkan berdasarkan Sign Language yang diinputkan pasien.</string>
 </resources>

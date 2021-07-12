@@ -2,6 +2,7 @@ package com.kedirilagi.astro.data.view.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.kedirilagi.astro.R
 import com.kedirilagi.astro.databinding.ActivityRiwayatJatuhBinding
 
 class RiwayatJatuhActivity : AppCompatActivity() {
@@ -19,6 +20,7 @@ class RiwayatJatuhActivity : AppCompatActivity() {
     }
 
     private fun setupView() {
+        binding.tvToolbar.text = getString(R.string.riwayat_jatuh)
         binding.tvBack.setOnClickListener {
             finish()
         }
