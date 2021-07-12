@@ -30,7 +30,7 @@ class ProfilFragment : Fragment() {
     }
 
     private fun setupView() {
-        binding.tvLayoutToolbar.tvToolbar.text = getString(R.string.petunjuk)
+        binding.tvLayoutToolbar.tvToolbar.text = getString(R.string.profil)
     }
 
     @Suppress("DEPRECATION")
