@@ -17,10 +17,14 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.kedirilagi.astro.R
 import com.kedirilagi.astro.data.model.JadwalModel
+import com.kedirilagi.astro.data.view.adapter.JadwalAdapter
 import com.kedirilagi.astro.data.viewmodel.JadwalViewModel
 import com.kedirilagi.astro.databinding.FragmentJadwalBinding
 import com.kedirilagi.astro.extension.dayExtension
+import com.kedirilagi.astro.extension.monthExtension
 import com.kedirilagi.astro.utils.showToast
+import com.kedirilagi.astro.utils.viewHide
+import com.kedirilagi.astro.utils.viewShow
 import timber.log.Timber
 import java.time.LocalDateTime
 import java.util.*
@@ -31,6 +35,8 @@ class JadwalFragment : Fragment() {
 
     private val viewModel by lazy { ViewModelProvider(requireActivity()).get(JadwalViewModel::class.java) }
     private lateinit var binding: FragmentJadwalBinding
+    private lateinit var adapter: JadwalAdapter
+
 
     var time: String = " "
     var currDate: String = ""
@@ -47,6 +53,7 @@ class JadwalFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupView()
+        setupRecyclerView()
     }
 
     private fun setupView() {
@@ -54,6 +61,28 @@ class JadwalFragment : Fragment() {
         binding.appCompatImageView.setOnClickListener {
             setupBottomSheet()
         }
+    }
+
+    private fun setupRecyclerView() {
+        adapter = JadwalAdapter(arrayListOf())
+        binding.listJadwal.adapter = adapter
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getDataJadwal.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            Timber.e("data : $it")
+            adapter.setData(it)
+            if (it.isEmpty()) {
+                binding.gif.viewShow()
+                binding.gifCaption.viewShow()
+                binding.listJadwal.viewHide()
+            } else {
+                binding.gif.viewHide()
+                binding.gifCaption.viewHide()
+                binding.listJadwal.viewShow()
+            }
+        })
     }
 
     @SuppressLint("SetTextI18n")
@@ -71,7 +100,6 @@ class JadwalFragment : Fragment() {
         val mHour = c.get(Calendar.HOUR_OF_DAY)
         val mMinute = c.get(Calendar.MINUTE)
 
-        val mDay = c.get(Calendar.DAY_OF_WEEK)
         val mDays = c.get(Calendar.DAY_OF_MONTH)
         val mMonth = c.get(Calendar.MONTH)
         val mYear = c.get(Calendar.YEAR)
@@ -106,7 +134,7 @@ class JadwalFragment : Fragment() {
         kalender.setOnDateChangeListener { _, year, month, dayOfMonth ->
 
             val hari = dayExtension(year, month, dayOfMonth)
-            val bulan = dayExtension(year, month, dayOfMonth)
+            val bulan = monthExtension(year, month, dayOfMonth)
 
             currDate = "$hari, $dayOfMonth $bulan $year"
 

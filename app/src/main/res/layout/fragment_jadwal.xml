@@ -39,7 +39,7 @@
         app:lottie_loop="true" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/appCompatTextView"
+        android:id="@+id/gif_caption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -53,9 +53,10 @@
         app:layout_constraintTop_toBottomOf="@+id/gif" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_material"
+        android:id="@+id/list_jadwal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="250dp"
         android:layout_marginTop="28dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@+id/appCompatImageView"
