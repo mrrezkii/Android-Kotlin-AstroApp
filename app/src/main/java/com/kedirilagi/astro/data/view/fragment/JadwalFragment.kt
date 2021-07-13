@@ -19,7 +19,9 @@ import com.kedirilagi.astro.R
 import com.kedirilagi.astro.data.model.JadwalModel
 import com.kedirilagi.astro.data.viewmodel.JadwalViewModel
 import com.kedirilagi.astro.databinding.FragmentJadwalBinding
+import com.kedirilagi.astro.extension.dayExtension
 import com.kedirilagi.astro.utils.showToast
+import timber.log.Timber
 import java.time.LocalDateTime
 import java.util.*
 
@@ -69,6 +71,18 @@ class JadwalFragment : Fragment() {
         val mHour = c.get(Calendar.HOUR_OF_DAY)
         val mMinute = c.get(Calendar.MINUTE)
 
+        val mDay = c.get(Calendar.DAY_OF_WEEK)
+        val mDays = c.get(Calendar.DAY_OF_MONTH)
+        val mMonth = c.get(Calendar.MONTH)
+        val mYear = c.get(Calendar.YEAR)
+
+        Timber.d("Calender anyar : $c")
+
+        val hari = dayExtension(mYear, mMonth, mDays)
+        val bulan = dayExtension(mYear, mMonth, mDays)
+
+        currDate = "$hari, $mDays $bulan $mYear"
+
         tvTimePicker!!.setOnClickListener {
             val timePickerDialog = TimePickerDialog(
                 requireActivity(),
@@ -90,35 +104,9 @@ class JadwalFragment : Fragment() {
 
 
         kalender.setOnDateChangeListener { _, year, month, dayOfMonth ->
-            val calendar: Calendar = Calendar.getInstance()
-            calendar.set(year, month, dayOfMonth)
 
-            val hari = when (val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)) {
-                1 -> "Minggu"
-                2 -> "Senin"
-                3 -> "Selasa"
-                4 -> "Rabu"
-                5 -> "Kamis"
-                6 -> "Jum'at"
-                7 -> "Sabtu"
-                else -> dayOfWeek
-            }
-
-            val bulan = when (val month = calendar.get(Calendar.MONTH)) {
-                0 -> "Januari"
-                1 -> "Februari"
-                2 -> "Maret"
-                3 -> "April"
-                4 -> "Mei"
-                5 -> "Juni"
-                6 -> "Juli"
-                7 -> "Agustus"
-                8 -> "September"
-                9 -> "Oktober"
-                10 -> "November"
-                11 -> "Desember"
-                else -> month
-            }
+            val hari = dayExtension(year, month, dayOfMonth)
+            val bulan = dayExtension(year, month, dayOfMonth)
 
             currDate = "$hari, $dayOfMonth $bulan $year"
 
@@ -141,6 +129,7 @@ class JadwalFragment : Fragment() {
                             tanggal = currDate
                         )
                     )
+                    bottomSheetDialog.dismiss()
                 }
 
             }
