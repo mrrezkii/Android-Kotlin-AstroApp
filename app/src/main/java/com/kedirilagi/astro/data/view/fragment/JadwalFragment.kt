@@ -11,14 +11,17 @@ import android.view.WindowManager
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.kedirilagi.astro.R
+import com.kedirilagi.astro.data.viewmodel.MainlViewModel
 import com.kedirilagi.astro.databinding.FragmentJadwalBinding
 import java.util.*
 
 
 class JadwalFragment : Fragment() {
 
+    private val viewModel by lazy { ViewModelProvider(requireActivity()).get(MainlViewModel::class.java) }
     private lateinit var binding: FragmentJadwalBinding
 
     override fun onCreateView(

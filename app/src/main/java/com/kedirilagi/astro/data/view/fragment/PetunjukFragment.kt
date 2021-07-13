@@ -6,13 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.kedirilagi.astro.data.view.activity.MapsActivity
+import com.kedirilagi.astro.data.viewmodel.MainlViewModel
 import com.kedirilagi.astro.databinding.FragmentPetunjukBinding
 import kotlinx.coroutines.*
 
 
 class PetunjukFragment : Fragment() {
 
+    private val viewModel by lazy { ViewModelProvider(requireActivity()).get(MainlViewModel::class.java) }
     private lateinit var binding: FragmentPetunjukBinding
     private val activityScope = CoroutineScope(Dispatchers.Main)
 

@@ -6,16 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.kedirilagi.astro.data.model.AktivitasModel
 import com.kedirilagi.astro.data.model.ArtikelModel
 import com.kedirilagi.astro.data.view.activity.StatusActivity
 import com.kedirilagi.astro.data.view.adapter.AktivitasAdapter
 import com.kedirilagi.astro.data.view.adapter.ArtikelAdapter
+import com.kedirilagi.astro.data.viewmodel.MainlViewModel
 import com.kedirilagi.astro.databinding.FragmentBerandaBinding
 
 
 class BerandaFragment : Fragment() {
 
+    private val viewModel by lazy { ViewModelProvider(requireActivity()).get(MainlViewModel::class.java) }
     private lateinit var binding: FragmentBerandaBinding
     private lateinit var adapterAktivitas: AktivitasAdapter
     private lateinit var adapterArtikel: ArtikelAdapter

@@ -9,14 +9,17 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.kedirilagi.astro.R
 import com.kedirilagi.astro.data.view.activity.RiwayatAktivitasActivity
 import com.kedirilagi.astro.data.view.activity.RiwayatJatuhActivity
 import com.kedirilagi.astro.data.view.activity.TentangAstroActivity
+import com.kedirilagi.astro.data.viewmodel.MainlViewModel
 import com.kedirilagi.astro.databinding.FragmentProfilBinding
 
 class ProfilFragment : Fragment() {
 
+    private val viewModel by lazy { ViewModelProvider(requireActivity()).get(MainlViewModel::class.java) }
     private lateinit var binding: FragmentProfilBinding
 
     override fun onCreateView(

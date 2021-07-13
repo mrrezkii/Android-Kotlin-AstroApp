@@ -7,18 +7,32 @@ import android.view.View
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.kedirilagi.astro.R
+import com.kedirilagi.astro.data.viewmodel.PetunjukViewModel
+import com.kedirilagi.astro.data.viewmodel.factory.PetunjukViewModelFactory
 import com.kedirilagi.astro.databinding.ActivityMapsBinding
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.kodein
+import org.kodein.di.generic.instance
 
-class MapsActivity : AppCompatActivity() {
+class MapsActivity : AppCompatActivity(), KodeinAware {
 
+    override val kodein by kodein()
+    private val viewModelFactory: PetunjukViewModelFactory by instance()
+    private lateinit var viewModel: PetunjukViewModel
     private val binding: ActivityMapsBinding by lazy { ActivityMapsBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        setupViewModel()
         setupView()
+    }
+
+    private fun setupViewModel() {
+        viewModel = ViewModelProvider(this, viewModelFactory).get(PetunjukViewModel::class.java)
     }
 
     private fun setupView() {

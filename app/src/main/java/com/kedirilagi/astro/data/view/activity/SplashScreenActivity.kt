@@ -4,11 +4,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import com.kedirilagi.astro.data.viewmodel.MainlViewModel
+import com.kedirilagi.astro.data.viewmodel.factory.MainViewModelFactory
 import com.kedirilagi.astro.databinding.ActivitySplashScreenBinding
 import kotlinx.coroutines.*
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.kodein
+import org.kodein.di.generic.instance
 
-class SplashScreenActivity : AppCompatActivity() {
+class SplashScreenActivity : AppCompatActivity(), KodeinAware {
 
+    override val kodein by kodein()
+    private val viewModelFactory: MainViewModelFactory by instance()
+    private lateinit var viewModel: MainlViewModel
     private val activityScope = CoroutineScope(Dispatchers.Main)
     private val binding: ActivitySplashScreenBinding by lazy {
         ActivitySplashScreenBinding.inflate(
@@ -19,6 +28,7 @@ class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        setupViewModel()
 
         activityScope.launch {
             delay(3000)
@@ -27,6 +37,10 @@ class SplashScreenActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun setupViewModel() {
+        viewModel = ViewModelProvider(this, viewModelFactory).get(MainlViewModel::class.java)
     }
 
     @Suppress("DEPRECATION")
