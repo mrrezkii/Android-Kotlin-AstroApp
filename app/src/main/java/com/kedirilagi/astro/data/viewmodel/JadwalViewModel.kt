@@ -1,7 +1,6 @@
 package com.kedirilagi.astro.data.viewmodel
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kedirilagi.astro.data.model.JadwalModel
@@ -12,16 +11,6 @@ import kotlinx.coroutines.launch
 class JadwalViewModel(
     val repository: AstroRepository
 ) : ViewModel() {
-
-//    val jadwal: MutableLiveData<JadwalModel> = MutableLiveData()
-
-    val aktivitas = MutableLiveData<String>()
-
-    val lokasi = MutableLiveData<String>()
-
-    val jam = MutableLiveData<String>()
-
-    val tanggal = MutableLiveData<String>()
 
     val getDataJadwal: LiveData<List<JadwalEntity>> = repository.getDataJadwal()
 
@@ -35,6 +24,10 @@ class JadwalViewModel(
                 tanggal = data.tanggal
             )
         )
+    }
+
+    fun deleteDataJadwal(id: String) = viewModelScope.launch {
+        repository.deleteDataJadwal(id)
     }
 
 }

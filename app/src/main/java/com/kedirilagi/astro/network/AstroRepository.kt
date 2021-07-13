@@ -25,7 +25,7 @@ class AstroRepository(
 
     fun getDataJadwal() = db.jadwalDao().select()
 
-    suspend fun deleteDataJadwa(entity: JadwalEntity) {
-        db.jadwalDao().delete(entity)
+    suspend fun deleteDataJadwal(id: String) {
+        db.jadwalDao().deleteById(id)
     }
 }

@@ -14,6 +14,9 @@ interface JadwalDao {
     @Delete
     suspend fun delete(entity: JadwalEntity)
 
+    @Query("DELETE FROM tableJadwal WHERE id = :user_id")
+    suspend fun deleteById(user_id: String)
+
     @Query("DELETE FROM tableJadwal")
     suspend fun deleteAll()
 

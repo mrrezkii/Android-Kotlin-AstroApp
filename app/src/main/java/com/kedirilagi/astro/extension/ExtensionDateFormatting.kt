@@ -35,7 +35,7 @@ fun dayExtension(year: Int, month: Int, dayOfMonth: Int): Comparable<*> {
         3 -> "Selasa"
         4 -> "Rabu"
         5 -> "Kamis"
-        6 -> "Jum'at"
+        6 -> "Jumat"
         7 -> "Sabtu"
         else -> dayOfWeek
     }

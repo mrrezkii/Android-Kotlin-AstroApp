@@ -1,7 +1,9 @@
 package com.kedirilagi.astro.data.view.fragment
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.app.TimePickerDialog
+import android.graphics.Canvas
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,8 +14,11 @@ import android.widget.CalendarView
 import android.widget.EditText
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.kedirilagi.astro.R
 import com.kedirilagi.astro.data.model.JadwalModel
@@ -25,6 +30,7 @@ import com.kedirilagi.astro.extension.monthExtension
 import com.kedirilagi.astro.utils.showToast
 import com.kedirilagi.astro.utils.viewHide
 import com.kedirilagi.astro.utils.viewShow
+import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 import timber.log.Timber
 import java.time.LocalDateTime
 import java.util.*
@@ -66,6 +72,83 @@ class JadwalFragment : Fragment() {
     private fun setupRecyclerView() {
         adapter = JadwalAdapter(arrayListOf())
         binding.listJadwal.adapter = adapter
+
+        val simpleCallback: ItemTouchHelper.SimpleCallback = object :
+            ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                val entity = adapter.jadwals[position]
+
+                when (direction) {
+                    ItemTouchHelper.LEFT -> {
+                        AlertDialog.Builder(requireContext())
+                            .setTitle(entity.aktivitas)
+                            .setMessage("Anda Yakin Ingin Menghapus ${entity.aktivitas} ?")
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setPositiveButton("Hapus") { dialog, whichButton ->
+                                viewModel.deleteDataJadwal(entity.id)
+                                dialog.dismiss()
+                                adapter.notifyDataSetChanged()
+                            }
+                            .setNegativeButton("Tidak") { dialog, which ->
+                                dialog.dismiss()
+                                adapter.notifyDataSetChanged()
+                            }.show()
+
+                    }
+                }
+            }
+
+            override fun onChildDraw(
+                c: Canvas,
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                dX: Float,
+                dY: Float,
+                actionState: Int,
+                isCurrentlyActive: Boolean
+            ) {
+                RecyclerViewSwipeDecorator.Builder(
+                    requireContext(),
+                    c,
+                    recyclerView,
+                    viewHolder,
+                    dX,
+                    dY,
+                    actionState,
+                    isCurrentlyActive
+                )
+                    .addSwipeLeftBackgroundColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.colorPrimaryDark
+                        )
+                    )
+                    .addSwipeLeftActionIcon(R.drawable.ic_hapus)
+                    .setActionIconTint(
+                        ContextCompat.getColor(
+                            recyclerView.context,
+                            android.R.color.white
+                        )
+                    )
+                    .create()
+                    .decorate()
+                super.onChildDraw(
+                    c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive
+                )
+            }
+        }
+
+        val itemTouchHelper = ItemTouchHelper(simpleCallback)
+        itemTouchHelper.attachToRecyclerView(binding.listJadwal)
     }
 
     override fun onResume() {
