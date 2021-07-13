@@ -21,7 +21,7 @@ class AstroApplication : Application(), KodeinAware {
 
         bind() from singleton { AstroPreferences(instance()) }
         bind() from singleton { AstroDatabase(instance()) }
-        bind() from singleton { AstroRepository(instance()) }
+        bind() from singleton { AstroRepository(instance(), instance()) }
 
         bind() from provider { MainViewModelFactory(instance()) }
         bind() from provider { BerandaViewModelFactory(instance()) }

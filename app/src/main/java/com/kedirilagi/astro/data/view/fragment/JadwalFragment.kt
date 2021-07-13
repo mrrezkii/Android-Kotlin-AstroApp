@@ -8,21 +8,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.widget.CalendarView
+import android.widget.EditText
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.kedirilagi.astro.R
-import com.kedirilagi.astro.data.viewmodel.MainlViewModel
+import com.kedirilagi.astro.data.model.JadwalModel
+import com.kedirilagi.astro.data.viewmodel.JadwalViewModel
 import com.kedirilagi.astro.databinding.FragmentJadwalBinding
+import com.kedirilagi.astro.utils.showToast
+import java.time.LocalDateTime
 import java.util.*
 
 
+@RequiresApi(Build.VERSION_CODES.O)
 class JadwalFragment : Fragment() {
 
-    private val viewModel by lazy { ViewModelProvider(requireActivity()).get(MainlViewModel::class.java) }
+    private val viewModel by lazy { ViewModelProvider(requireActivity()).get(JadwalViewModel::class.java) }
     private lateinit var binding: FragmentJadwalBinding
+
+    var time: String = " "
+    var currDate: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -65,12 +74,76 @@ class JadwalFragment : Fragment() {
                 requireActivity(),
                 { _, hourOfDay, minute ->
                     tvTimePicker.text = "$hourOfDay:$minute"
+                    time = "$hourOfDay:$minute"
                 },
                 mHour,
                 mMinute,
                 false
             )
             timePickerDialog.show()
+        }
+
+        val tambah = bottomSheetView.findViewById<TextView>(R.id.btnTambah)
+        val aktivitas = bottomSheetView.findViewById<EditText>(R.id.et_aktivitas).text
+        val lokasi = bottomSheetView.findViewById<EditText>(R.id.et_lokasi).text
+        val kalender = bottomSheetView.findViewById<CalendarView>(R.id.calendarView)
+
+
+        kalender.setOnDateChangeListener { _, year, month, dayOfMonth ->
+            val calendar: Calendar = Calendar.getInstance()
+            calendar.set(year, month, dayOfMonth)
+
+            val hari = when (val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)) {
+                1 -> "Minggu"
+                2 -> "Senin"
+                3 -> "Selasa"
+                4 -> "Rabu"
+                5 -> "Kamis"
+                6 -> "Jum'at"
+                7 -> "Sabtu"
+                else -> dayOfWeek
+            }
+
+            val bulan = when (val month = calendar.get(Calendar.MONTH)) {
+                0 -> "Januari"
+                1 -> "Februari"
+                2 -> "Maret"
+                3 -> "April"
+                4 -> "Mei"
+                5 -> "Juni"
+                6 -> "Juli"
+                7 -> "Agustus"
+                8 -> "September"
+                9 -> "Oktober"
+                10 -> "November"
+                11 -> "Desember"
+                else -> month
+            }
+
+            currDate = "$hari, $dayOfMonth $bulan $year"
+
+        }
+
+        tambah.setOnClickListener {
+            val jamResult = time.filter { it.isDigit() }
+            when {
+                aktivitas.isNullOrBlank() -> showToast("Aktivtias harus di isi")
+                lokasi.isNullOrBlank() -> showToast("Lokasi harus diisi")
+                jamResult.isNullOrBlank() -> showToast("Jam harus diisi")
+                currDate.isNullOrBlank() -> showToast("Tanggal harus disi")
+                else -> {
+                    viewModel.saveDataJadwal(
+                        JadwalModel(
+                            id = LocalDateTime.now().toString(),
+                            aktivitas = aktivitas.toString(),
+                            lokasi = lokasi.toString(),
+                            jam = time,
+                            tanggal = currDate
+                        )
+                    )
+                }
+
+            }
         }
 
         bottomSheetDialog.setContentView(bottomSheetView)
