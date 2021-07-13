@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 
 private const val prefName = "Astro.pref"
 
-class ExamplePreferences(context: Context) {
+class AstroPreferences(context: Context) {
 
     private var sharedPref: SharedPreferences =
         context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
@@ -20,7 +20,16 @@ class ExamplePreferences(context: Context) {
             .apply()
     }
 
+    fun put(key: String, value: Boolean) {
+        editor.putBoolean(key, value)
+            .apply()
+    }
+
     fun getString(key: String): String? {
         return sharedPref.getString(key, null)
+    }
+
+    fun getBoolean(key: String): Boolean? {
+        return sharedPref.getBoolean(key, true)
     }
 }
