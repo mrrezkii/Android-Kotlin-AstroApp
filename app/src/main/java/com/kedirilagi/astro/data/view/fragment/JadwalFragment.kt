@@ -187,10 +187,8 @@ class JadwalFragment : Fragment() {
         val mMonth = c.get(Calendar.MONTH)
         val mYear = c.get(Calendar.YEAR)
 
-        Timber.d("Calender anyar : $c")
-
         val hari = dayExtension(mYear, mMonth, mDays)
-        val bulan = dayExtension(mYear, mMonth, mDays)
+        val bulan = monthExtension(mYear, mMonth, mDays)
 
         currDate = "$hari, $mDays $bulan $mYear"
 

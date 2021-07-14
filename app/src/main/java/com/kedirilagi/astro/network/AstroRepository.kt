@@ -1,5 +1,7 @@
 package com.kedirilagi.astro.network
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.database.DataSnapshot
@@ -15,6 +17,7 @@ import com.kedirilagi.astro.storage.preferences.PreferencesModelOnboarding
 import com.kedirilagi.astro.storage.preferences.prefFirst
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.time.LocalDate
 
 class AstroRepository(
     private val pref: AstroPreferences,
@@ -53,22 +56,28 @@ class AstroRepository(
             message.post("$error")
         }
 
+        @RequiresApi(Build.VERSION_CODES.O)
         override fun onDataChange(snapshot: DataSnapshot) {
             isLoading.post(false)
 
+            val tanggal = LocalDate.now().toString()
             val riwayatAktivitasResult = mutableListOf<RiwayatAktivitasResponse>()
             snapshot.children.forEach { dataSnapshot ->
                 dataSnapshot.getValue(RiwayatAktivitasResponse::class.java)?.let { aktivitas ->
                     aktivitas.key = dataSnapshot.key
                     aktivitas.nama_akvitias = dataSnapshot.child("nama_aktivitas").value.toString()
-                    aktivitas.jam = dataSnapshot.child("Jam").value.toString()
-                    riwayatAktivitasResult.add(
-                        RiwayatAktivitasResponse(
-                            key = aktivitas.key,
-                            nama_akvitias = aktivitas.nama_akvitias,
-                            jam = aktivitas.jam
+                    aktivitas.jam = dataSnapshot.child("jam").value.toString()
+                    aktivitas.tanggal = dataSnapshot.child("tanggal").value.toString()
+                    if (aktivitas.tanggal.toString() == tanggal) {
+                        riwayatAktivitasResult.add(
+                            RiwayatAktivitasResponse(
+                                key = aktivitas.key,
+                                nama_akvitias = aktivitas.nama_akvitias,
+                                jam = aktivitas.jam,
+                                tanggal = aktivitas.tanggal
+                            )
                         )
-                    )
+                    }
                 }
             }
             riwayatAktivitas.post(riwayatAktivitasResult)
