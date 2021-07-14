@@ -46,6 +46,8 @@ class AstroRepository(
 
     fun getDataJadwal() = db.jadwalDao().select()
 
+    fun getFirstDataJadwal() = db.jadwalDao().selectFirstData()
+
     suspend fun deleteDataJadwal(id: String) {
         db.jadwalDao().deleteById(id)
     }

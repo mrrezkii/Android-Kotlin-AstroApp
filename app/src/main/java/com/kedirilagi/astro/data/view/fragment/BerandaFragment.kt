@@ -19,6 +19,8 @@ import com.kedirilagi.astro.extension.dayExtension
 import com.kedirilagi.astro.extension.monthExtension
 import com.kedirilagi.astro.extension.observe
 import com.kedirilagi.astro.utils.showToast
+import com.kedirilagi.astro.utils.viewHide
+import com.kedirilagi.astro.utils.viewShow
 import timber.log.Timber
 import java.util.*
 
@@ -92,6 +94,33 @@ class BerandaFragment : Fragment() {
         observe(viewModel.message) { message ->
             showToast(message)
         }
+        viewModel.getFirstDataJadwal.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
+            if (it == null) {
+                binding.ivSad.viewShow()
+                binding.tvSad.viewShow()
+
+                binding.view.viewHide()
+                binding.tvTanggalJadwal.viewHide()
+                binding.tvAktivitas.viewHide()
+                binding.tvLokasi.viewHide()
+                binding.tvJam.viewHide()
+
+            } else {
+                binding.ivSad.viewHide()
+                binding.tvSad.viewHide()
+
+                binding.view.viewShow()
+                binding.tvTanggalJadwal.viewShow()
+                binding.tvAktivitas.viewShow()
+                binding.tvLokasi.viewShow()
+                binding.tvJam.viewShow()
+
+                binding.tvTanggalJadwal.text = it.tanggal
+                binding.tvAktivitas.text = it.aktivitas
+                binding.tvLokasi.text = it.lokasi
+                binding.tvJam.text = it.jam
+            }
+        })
     }
 
     private fun setAdapterAktivitas() {

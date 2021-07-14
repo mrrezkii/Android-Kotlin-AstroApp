@@ -22,4 +22,7 @@ interface JadwalDao {
 
     @Query("SELECT * FROM tableJadwal")
     fun select(): LiveData<List<JadwalEntity>>
+
+    @Query("SELECT * FROM tableJadwal WHERE id LIMIT 1")
+    fun selectFirstData(): LiveData<JadwalEntity>
 }
