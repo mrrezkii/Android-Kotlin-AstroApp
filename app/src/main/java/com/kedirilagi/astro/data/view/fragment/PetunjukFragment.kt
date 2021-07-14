@@ -8,14 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.kedirilagi.astro.data.view.activity.MapsActivity
-import com.kedirilagi.astro.data.viewmodel.MainViewModel
+import com.kedirilagi.astro.data.viewmodel.PetunjukViewModel
 import com.kedirilagi.astro.databinding.FragmentPetunjukBinding
 import kotlinx.coroutines.*
 
 
 class PetunjukFragment : Fragment() {
 
-    private val viewModel by lazy { ViewModelProvider(requireActivity()).get(MainViewModel::class.java) }
+    private val viewModel by lazy { ViewModelProvider(requireActivity()).get(PetunjukViewModel::class.java) }
     private lateinit var binding: FragmentPetunjukBinding
     private val activityScope = CoroutineScope(Dispatchers.Main)
 

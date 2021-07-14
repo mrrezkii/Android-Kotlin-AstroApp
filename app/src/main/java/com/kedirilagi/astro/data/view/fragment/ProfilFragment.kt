@@ -14,12 +14,12 @@ import com.kedirilagi.astro.R
 import com.kedirilagi.astro.data.view.activity.RiwayatAktivitasActivity
 import com.kedirilagi.astro.data.view.activity.RiwayatJatuhActivity
 import com.kedirilagi.astro.data.view.activity.TentangAstroActivity
-import com.kedirilagi.astro.data.viewmodel.MainViewModel
+import com.kedirilagi.astro.data.viewmodel.ProfilViewModel
 import com.kedirilagi.astro.databinding.FragmentProfilBinding
 
 class ProfilFragment : Fragment() {
 
-    private val viewModel by lazy { ViewModelProvider(requireActivity()).get(MainViewModel::class.java) }
+    private val viewModel by lazy { ViewModelProvider(requireActivity()).get(ProfilViewModel::class.java) }
     private lateinit var binding: FragmentProfilBinding
 
     override fun onCreateView(

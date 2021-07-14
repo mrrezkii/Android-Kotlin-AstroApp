@@ -8,9 +8,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.kedirilagi.astro.R
-import com.kedirilagi.astro.data.viewmodel.BerandaViewModel
-import com.kedirilagi.astro.data.viewmodel.JadwalViewModel
-import com.kedirilagi.astro.data.viewmodel.MainViewModel
+import com.kedirilagi.astro.data.viewmodel.*
 import com.kedirilagi.astro.data.viewmodel.factory.BerandaViewModelFactory
 import com.kedirilagi.astro.data.viewmodel.factory.JadwalViewModelFactory
 import com.kedirilagi.astro.data.viewmodel.factory.MainViewModelFactory
@@ -23,12 +21,12 @@ class MainActivity : AppCompatActivity(), KodeinAware {
 
     override val kodein by kodein()
     private val mainViewModelFactory: MainViewModelFactory by instance()
-    private val jadwalViewModelFactory: JadwalViewModelFactory by instance()
     private val berandaViewModelFactory: BerandaViewModelFactory by instance()
+    private val petunjukViewModelFactory: BerandaViewModelFactory by instance()
+    private val jadwalViewModelFactory: JadwalViewModelFactory by instance()
+    private val profilViewModelFactory: BerandaViewModelFactory by instance()
 
     private lateinit var mainViewModel: MainViewModel
-    private lateinit var jadwalViewModel: JadwalViewModel
-    private lateinit var berandaViewModel: BerandaViewModel
 
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
@@ -40,12 +38,11 @@ class MainActivity : AppCompatActivity(), KodeinAware {
     }
 
     private fun setupViewModel() {
-        mainViewModel =
-            ViewModelProvider(this, mainViewModelFactory).get(MainViewModel::class.java)
-        jadwalViewModel =
-            ViewModelProvider(this, jadwalViewModelFactory).get(JadwalViewModel::class.java)
-        berandaViewModel =
-            ViewModelProvider(this, berandaViewModelFactory).get(BerandaViewModel::class.java)
+        mainViewModel = ViewModelProvider(this, mainViewModelFactory).get(MainViewModel::class.java)
+        ViewModelProvider(this, berandaViewModelFactory).get(BerandaViewModel::class.java)
+        ViewModelProvider(this, petunjukViewModelFactory).get(PetunjukViewModel::class.java)
+        ViewModelProvider(this, jadwalViewModelFactory).get(JadwalViewModel::class.java)
+        ViewModelProvider(this, profilViewModelFactory).get(ProfilViewModel::class.java)
     }
 
     private fun setupView() {
