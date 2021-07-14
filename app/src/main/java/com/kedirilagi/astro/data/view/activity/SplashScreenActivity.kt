@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.kedirilagi.astro.data.viewmodel.MainlViewModel
+import com.kedirilagi.astro.data.viewmodel.MainViewModel
 import com.kedirilagi.astro.data.viewmodel.factory.MainViewModelFactory
 import com.kedirilagi.astro.databinding.ActivitySplashScreenBinding
 import kotlinx.coroutines.*
@@ -17,7 +17,7 @@ class SplashScreenActivity : AppCompatActivity(), KodeinAware {
 
     override val kodein by kodein()
     private val viewModelFactory: MainViewModelFactory by instance()
-    private lateinit var viewModel: MainlViewModel
+    private lateinit var viewModel: MainViewModel
     private val activityScope = CoroutineScope(Dispatchers.Main)
     private val binding: ActivitySplashScreenBinding by lazy {
         ActivitySplashScreenBinding.inflate(
@@ -40,7 +40,7 @@ class SplashScreenActivity : AppCompatActivity(), KodeinAware {
     }
 
     private fun setupViewModel() {
-        viewModel = ViewModelProvider(this, viewModelFactory).get(MainlViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
     }
 
     @Suppress("DEPRECATION")

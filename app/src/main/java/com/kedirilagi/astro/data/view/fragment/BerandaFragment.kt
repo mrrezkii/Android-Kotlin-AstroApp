@@ -12,13 +12,13 @@ import com.kedirilagi.astro.data.model.ArtikelModel
 import com.kedirilagi.astro.data.view.activity.StatusActivity
 import com.kedirilagi.astro.data.view.adapter.AktivitasAdapter
 import com.kedirilagi.astro.data.view.adapter.ArtikelAdapter
-import com.kedirilagi.astro.data.viewmodel.MainlViewModel
+import com.kedirilagi.astro.data.viewmodel.MainViewModel
 import com.kedirilagi.astro.databinding.FragmentBerandaBinding
 
 
 class BerandaFragment : Fragment() {
 
-    private val viewModel by lazy { ViewModelProvider(requireActivity()).get(MainlViewModel::class.java) }
+    private val viewModel by lazy { ViewModelProvider(requireActivity()).get(MainViewModel::class.java) }
     private lateinit var binding: FragmentBerandaBinding
     private lateinit var adapterAktivitas: AktivitasAdapter
     private lateinit var adapterArtikel: ArtikelAdapter
