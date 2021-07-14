@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kedirilagi.astro.R
-import com.kedirilagi.astro.data.model.AktivitasModel
 import com.kedirilagi.astro.databinding.AdapterAktivitasBinding
+import com.kedirilagi.astro.network.response.RiwayatAktivitasResponse
 
 class AktivitasAdapter(
-    var aktivitass: ArrayList<AktivitasModel>
+    var aktivitass: ArrayList<RiwayatAktivitasResponse>
 ) : RecyclerView.Adapter<AktivitasAdapter.ViewHolder>() {
 
 
@@ -22,19 +22,19 @@ class AktivitasAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val aktivitas = aktivitass[position]
-        holder.binding.tvAktivitas.text = aktivitas.aktivitas
+        holder.binding.tvAktivitas.text = aktivitas.nama_akvitias
         holder.binding.tvJam.text = aktivitas.jam
 
         val image = Glide.with(holder.binding.ivAktivitas.context)
-        if (aktivitas.aktivitas == "Makan") {
+        if (aktivitas.nama_akvitias == "Makan") {
             image.load(R.drawable.ic_makan)
                 .centerCrop()
                 .into(holder.binding.ivAktivitas)
-        } else if (aktivitas.aktivitas == "Minum") {
+        } else if (aktivitas.nama_akvitias == "Minum") {
             image.load(R.drawable.ic_minum)
                 .centerCrop()
                 .into(holder.binding.ivAktivitas)
-        } else if (aktivitas.aktivitas == "Pup") {
+        } else if (aktivitas.nama_akvitias == "Pup") {
             image.load(R.drawable.ic_pup)
                 .centerCrop()
                 .into(holder.binding.ivAktivitas)
@@ -44,7 +44,7 @@ class AktivitasAdapter(
 
     override fun getItemCount() = aktivitass.size
 
-    fun setData(data: List<AktivitasModel>) {
+    fun setData(data: List<RiwayatAktivitasResponse>) {
         aktivitass.clear()
         aktivitass.addAll(data)
         notifyDataSetChanged()
