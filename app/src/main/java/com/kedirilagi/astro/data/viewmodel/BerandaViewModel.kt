@@ -13,7 +13,6 @@ class BerandaViewModel(
 ) : ViewModel() {
     val riwayatAktivitas = repository.riwayatAktivitas
     val message = repository.message
-    val isLoading = repository.isLoading
 
     val getFirstDataJadwal: LiveData<JadwalEntity> = repository.getFirstDataJadwal()
 

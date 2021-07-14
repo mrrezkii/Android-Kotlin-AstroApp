@@ -21,7 +21,6 @@ import com.kedirilagi.astro.extension.observe
 import com.kedirilagi.astro.utils.showToast
 import com.kedirilagi.astro.utils.viewHide
 import com.kedirilagi.astro.utils.viewShow
-import timber.log.Timber
 import java.util.*
 
 
@@ -87,7 +86,6 @@ class BerandaFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setupObserver() {
         observe(viewModel.riwayatAktivitas) {
-            Timber.e("data observe : $it")
             Collections.reverse(it)
             adapterAktivitas.setData(it)
         }

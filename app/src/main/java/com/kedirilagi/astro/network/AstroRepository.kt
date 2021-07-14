@@ -13,7 +13,7 @@ import com.kedirilagi.astro.network.response.RiwayatAktivitasResponse
 import com.kedirilagi.astro.storage.persistence.AstroDatabase
 import com.kedirilagi.astro.storage.persistence.JadwalEntity
 import com.kedirilagi.astro.storage.preferences.AstroPreferences
-import com.kedirilagi.astro.storage.preferences.PreferencesModelOnboarding
+import com.kedirilagi.astro.storage.preferences.PreferencesModel
 import com.kedirilagi.astro.storage.preferences.prefFirst
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -23,10 +23,11 @@ class AstroRepository(
     private val pref: AstroPreferences,
     private val db: AstroDatabase
 ) {
-
-    private val firebaseDatabase by lazy {
-        FirebaseDatabase.getInstance()
+    companion object {
+        const val TABLE_RIWAYAT_AKTIVITAS = "Riwayat Aktivitas"
     }
+
+    private val firebaseDatabase by lazy { FirebaseDatabase.getInstance() }
 
     val riwayatAktivitas: LiveData<List<RiwayatAktivitasResponse>> = MutableLiveData()
     val isLoading: LiveData<Boolean> = MutableLiveData()
@@ -36,8 +37,8 @@ class AstroRepository(
         pref.put(prefFirst, first!!)
     }
 
-    fun getPreferencesOnboarding(): PreferencesModelOnboarding {
-        return PreferencesModelOnboarding(pref.getBoolean(prefFirst))
+    fun getPreferencesOnboarding(): PreferencesModel {
+        return PreferencesModel(pref.getBoolean(prefFirst))
     }
 
     suspend fun saveDataJadwal(entity: JadwalEntity) {
@@ -94,7 +95,4 @@ class AstroRepository(
             .addValueEventListener(getRiwayatAktivitasValueListener())
     }
 
-    companion object {
-        const val TABLE_RIWAYAT_AKTIVITAS = "Riwayat Aktivitas"
-    }
 }

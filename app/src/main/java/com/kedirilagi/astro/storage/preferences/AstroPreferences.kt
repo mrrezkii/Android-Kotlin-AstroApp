@@ -15,18 +15,10 @@ class AstroPreferences(context: Context) {
         editor = sharedPref.edit()
     }
 
-    fun put(key: String, value: String) {
-        editor.putString(key, value)
-            .apply()
-    }
 
     fun put(key: String, value: Boolean) {
         editor.putBoolean(key, value)
             .apply()
-    }
-
-    fun getString(key: String): String? {
-        return sharedPref.getString(key, null)
     }
 
     fun getBoolean(key: String): Boolean? {

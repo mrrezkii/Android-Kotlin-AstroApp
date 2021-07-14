@@ -31,7 +31,6 @@ import com.kedirilagi.astro.utils.showToast
 import com.kedirilagi.astro.utils.viewHide
 import com.kedirilagi.astro.utils.viewShow
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
-import timber.log.Timber
 import java.time.LocalDateTime
 import java.util.*
 
@@ -154,7 +153,6 @@ class JadwalFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.getDataJadwal.observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-            Timber.e("data : $it")
             adapter.setData(it)
             if (it.isEmpty()) {
                 binding.gif.viewShow()
