@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "324845998713",
+    "firebase_url": "https://astroapp-cbf26-default-rtdb.firebaseio.com",
+    "project_id": "astroapp-cbf26",
+    "storage_bucket": "astroapp-cbf26.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324845998713:android:584665ae8fe2fb1197baa8",
+        "android_client_info": {
+          "package_name": "com.kedirilagi.astro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "324845998713-d5kgetcuv5laroc0n0da4shm8rpuk149.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOpDw2Vg_mGqLXPbx8gy_j0jXV8zi0FGg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "324845998713-d5kgetcuv5laroc0n0da4shm8rpuk149.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
