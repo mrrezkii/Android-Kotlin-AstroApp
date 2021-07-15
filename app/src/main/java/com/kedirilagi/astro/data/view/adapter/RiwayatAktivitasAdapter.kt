@@ -24,7 +24,8 @@ class RiwayatAktivitasAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val aktivitas = aktivitass[position]
         holder.binding.tvAktivitas.text = aktivitas.nama_akvitias
-        holder.binding.tvJam.text = aktivitas.jam
+        val regexJam = aktivitas.jam.toString().replace("-", ":")
+        holder.binding.tvJam.text = regexJam
 
         val image = Glide.with(holder.binding.ivAktivitas.context)
         if (aktivitas.nama_akvitias == "Makan") {
