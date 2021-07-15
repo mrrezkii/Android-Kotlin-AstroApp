@@ -1,4 +1,4 @@
-package com.kedirilagi.astro.data.view.fragment
+package com.kedirilagi.astro.data.view.fragment.bottomnav
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog

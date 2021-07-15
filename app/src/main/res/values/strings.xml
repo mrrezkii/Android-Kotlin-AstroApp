@@ -67,4 +67,6 @@
     <string name="jatuh_depan">Jatuh Depan</string>
     <string name="deskripsi_riwayat_jatuh">Riwayat jatuh ditampilkan berdasarkan aktivitas sensor yang terpasang pada pasien.</string>
     <string name="deskripsi_riwayat_aktivitas">Aktivitas yang ditampilkan berdasarkan Sign Language yang diinputkan pasien.</string>
+
+    <string name="skip">Lewati</string>
 </resources>

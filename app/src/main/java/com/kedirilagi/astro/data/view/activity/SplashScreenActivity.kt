@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.kedirilagi.astro.data.viewmodel.MainViewModel
 import com.kedirilagi.astro.data.viewmodel.factory.MainViewModelFactory
@@ -24,23 +25,60 @@ class SplashScreenActivity : AppCompatActivity(), KodeinAware {
             layoutInflater
         )
     }
+    private val moveToMainActivity: Intent by lazy {
+        Intent(
+            this@SplashScreenActivity,
+            MainActivity::class.java
+        )
+    }
+    private val moveToOnboardingActivity: Intent by lazy {
+        Intent(
+            this@SplashScreenActivity,
+            OnboardingActivity::class.java
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setupViewModel()
-
-        activityScope.launch {
-            delay(3000)
-
-            val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+        setupListener()
+        setupObserver()
     }
 
     private fun setupViewModel() {
         viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
+    }
+
+    private fun delayOnboarding() {
+        activityScope.launch {
+            delay(3000)
+
+            startActivity(moveToOnboardingActivity)
+            finish()
+        }
+    }
+
+    private fun delayMain() {
+        activityScope.launch {
+            delay(3000)
+
+            startActivity(moveToMainActivity)
+            finish()
+        }
+    }
+
+    private fun setupListener() {
+        viewModel.getPreferences()
+    }
+
+    private fun setupObserver() {
+        viewModel.preferences.observe(this, Observer {
+            when (it.firstTime) {
+                true -> delayOnboarding()
+                false -> delayMain()
+            }
+        })
     }
 
     @Suppress("DEPRECATION")
