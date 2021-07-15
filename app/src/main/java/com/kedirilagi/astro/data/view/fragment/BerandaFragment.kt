@@ -14,10 +14,14 @@ import com.kedirilagi.astro.data.view.activity.StatusActivity
 import com.kedirilagi.astro.data.view.adapter.AktivitasAdapter
 import com.kedirilagi.astro.data.view.adapter.ArtikelAdapter
 import com.kedirilagi.astro.data.viewmodel.BerandaViewModel
+import com.kedirilagi.astro.data.viewmodel.factory.BerandaViewModelFactory
 import com.kedirilagi.astro.databinding.FragmentBerandaBinding
 import com.kedirilagi.astro.extension.dayExtension
 import com.kedirilagi.astro.extension.monthExtension
 import com.kedirilagi.astro.extension.observe
+import com.kedirilagi.astro.network.AstroRepository
+import com.kedirilagi.astro.storage.persistence.AstroDatabase
+import com.kedirilagi.astro.storage.preferences.AstroPreferences
 import com.kedirilagi.astro.utils.showToast
 import com.kedirilagi.astro.utils.viewHide
 import com.kedirilagi.astro.utils.viewShow
@@ -26,7 +30,8 @@ import java.util.*
 
 class BerandaFragment : Fragment() {
 
-    private val viewModel by lazy { ViewModelProvider(requireActivity()).get(BerandaViewModel::class.java) }
+    private lateinit var viewModelFactory: BerandaViewModelFactory
+    private lateinit var viewModel: BerandaViewModel
     private lateinit var binding: FragmentBerandaBinding
     private lateinit var adapterAktivitas: AktivitasAdapter
     private lateinit var adapterArtikel: ArtikelAdapter
@@ -42,8 +47,19 @@ class BerandaFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupViewModel()
         setupView()
         setupObserver()
+    }
+
+    private fun setupViewModel() {
+        val pref by lazy { AstroPreferences(requireActivity()) }
+        val db by lazy { AstroDatabase.invoke(requireContext()) }
+        viewModelFactory = BerandaViewModelFactory(AstroRepository(pref, db))
+        viewModel = ViewModelProvider(
+            requireActivity(),
+            viewModelFactory
+        ).get(BerandaViewModel::class.java)
     }
 
     override fun onResume() {
