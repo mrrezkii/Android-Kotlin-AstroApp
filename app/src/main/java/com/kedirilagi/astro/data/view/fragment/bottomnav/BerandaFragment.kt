@@ -49,7 +49,7 @@ class BerandaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupViewModel()
         setupView()
-        setupObserver()
+        setupObserve()
     }
 
     private fun setupViewModel() {
@@ -65,6 +65,7 @@ class BerandaFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         viewModel.getRiwayatAktivitas()
+        viewModel.getLastStatusPasien()
     }
 
     private fun setupView() {
@@ -85,9 +86,6 @@ class BerandaFragment : Fragment() {
         binding.tvHari.text = hari.toString()
         binding.tvTanggal.text = currDate
 
-        binding.layoutSafe.root.viewShow()
-        binding.layoutEmergency.root.viewHide()
-
 
         binding.layoutSafe.root.setOnClickListener {
             val intent = Intent(requireContext(), StatusActivity::class.java)
@@ -103,7 +101,7 @@ class BerandaFragment : Fragment() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun setupObserver() {
+    private fun setupObserve() {
         observe(viewModel.riwayatAktivitas) {
             if (it == null || it.isEmpty()) {
                 binding.tvSadAktivitas.viewShow()
@@ -116,6 +114,17 @@ class BerandaFragment : Fragment() {
 
                 Collections.reverse(it)
                 adapterAktivitas.setData(it)
+            }
+        }
+        observe(viewModel.statusPasien) {
+            it.forEach {
+                if (it.kondisi == "Aman") {
+                    binding.layoutSafe.root.viewShow()
+                    binding.layoutEmergency.root.viewHide()
+                } else {
+                    binding.layoutSafe.root.viewHide()
+                    binding.layoutEmergency.root.viewShow()
+                }
             }
         }
         observe(viewModel.message) { message ->

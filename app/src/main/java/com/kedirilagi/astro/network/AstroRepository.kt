@@ -33,6 +33,7 @@ class AstroRepository(
 
     val riwayatAktivitas: LiveData<List<RiwayatAktivitasResponse>> = MutableLiveData()
     val statusPasien: LiveData<List<StatusPasienResponse>> = MutableLiveData()
+    val lastStatusPasien: LiveData<List<StatusPasienResponse>> = MutableLiveData()
     val isLoading: LiveData<Boolean> = MutableLiveData()
     val message: LiveData<String> = MutableLiveData()
 
@@ -138,6 +139,48 @@ class AstroRepository(
             .reference
             .child(TABLE_STATUS_PASIEN)
         ref.addValueEventListener(getStatusPasienValueListener())
+        ref.keepSynced(true)
+    }
+
+    private fun getLastStatusPasienValueListener() = object : ValueEventListener {
+        override fun onCancelled(error: DatabaseError) {
+            isLoading.post(false)
+            message.post("$error")
+        }
+
+        @RequiresApi(Build.VERSION_CODES.O)
+        override fun onDataChange(snapshot: DataSnapshot) {
+            isLoading.post(false)
+
+            val statusPasienResult = mutableListOf<StatusPasienResponse>()
+            snapshot.children.forEach { dataSnapshot ->
+                dataSnapshot.getValue(StatusPasienResponse::class.java)?.let { aktivitas ->
+                    aktivitas.key = dataSnapshot.key
+                    aktivitas.kondisi = dataSnapshot.child("kondisi").value.toString()
+                    aktivitas.jam = dataSnapshot.child("jam").value.toString()
+                    aktivitas.tanggal = dataSnapshot.child("tanggal").value.toString()
+                    statusPasienResult.add(
+                        StatusPasienResponse(
+                            key = aktivitas.key,
+                            kondisi = aktivitas.kondisi,
+                            jam = aktivitas.jam,
+                            tanggal = aktivitas.tanggal
+                        )
+                    )
+                }
+            }
+            lastStatusPasien.post(statusPasienResult)
+        }
+    }
+
+    suspend fun getLastStatusPasien() = withContext(Dispatchers.IO) {
+        isLoading.post(true)
+        val ref = firebaseDatabase
+            .reference
+            .child(TABLE_STATUS_PASIEN)
+            .orderByKey()
+            .limitToLast(1)
+        ref.addValueEventListener(getLastStatusPasienValueListener())
         ref.keepSynced(true)
     }
 

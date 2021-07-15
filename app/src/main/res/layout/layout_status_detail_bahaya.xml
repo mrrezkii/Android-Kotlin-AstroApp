@@ -31,6 +31,19 @@
         app:layout_constraintTop_toBottomOf="@+id/gif" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/deteksi_caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/open_sans"
+        android:text="@string/bahaya_terdeteksi_caption"
+        android:textColor="@color/colorGrey"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5" />
+
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvAktivitas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,7 +54,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5" />
+        app:layout_constraintTop_toBottomOf="@+id/deteksi_caption" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTanggal"
@@ -70,7 +83,7 @@
         android:textColor="@color/colorWhite"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5" />
+        app:layout_constraintTop_toBottomOf="@+id/deteksi_caption" />
 
     <View
         android:layout_width="match_parent"

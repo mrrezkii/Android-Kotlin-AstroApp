@@ -43,6 +43,7 @@
     <string name="status_bahaya_subcaption">Ketuk untuk mengetahui informasi lebih lanjut</string>
     <string name="tidak_ada_bahaya_terdeteksi">Tidak ada bahaya terdeteksi</string>
     <string name="bahaya_terdeksi">Bahaya terdeteksi oleh sensor</string>
+    <string name="bahaya_terdeteksi_caption">Tekan tombol pada alat untuk mematikan alarm</string>
     <string name="lokasi_kamu">Lokasi Kamu</string>
     <string name="cari_rumah_sakit_terdekat">Cari Rumah Sakit Terdekat....</string>
 
@@ -89,6 +90,4 @@
 
     <string name="coming_soon">Kami Akan Hadir Untuk Anda</string>
     <string name="coming_soon_detail">Mohon maaf saat ini fitur petunjuk masih dalam tahap pengembangan</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
