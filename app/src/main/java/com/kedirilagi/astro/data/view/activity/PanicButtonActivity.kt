@@ -12,17 +12,21 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.kedirilagi.astro.R
 import com.kedirilagi.astro.data.viewmodel.PetunjukViewModel
 import com.kedirilagi.astro.data.viewmodel.factory.PetunjukViewModelFactory
-import com.kedirilagi.astro.databinding.ActivityMapsBinding
+import com.kedirilagi.astro.databinding.ActivityPanicButtonBinding
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
 
-class MapsActivity : AppCompatActivity(), KodeinAware {
+class PanicButtonActivity : AppCompatActivity(), KodeinAware {
 
     override val kodein by kodein()
     private val viewModelFactory: PetunjukViewModelFactory by instance()
     private lateinit var viewModel: PetunjukViewModel
-    private val binding: ActivityMapsBinding by lazy { ActivityMapsBinding.inflate(layoutInflater) }
+    private val binding: ActivityPanicButtonBinding by lazy {
+        ActivityPanicButtonBinding.inflate(
+            layoutInflater
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

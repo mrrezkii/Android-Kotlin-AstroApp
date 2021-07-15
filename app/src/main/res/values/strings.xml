@@ -86,4 +86,7 @@
     <string name="anggota_pertama_job">Machine Learning Developer</string>
     <string name="nama_anggota_kedua">Abel Bima Wiratama</string>
     <string name="anggota_kedua_job">IoT Engineer</string>
+
+    <string name="coming_soon">Kami Akan Hadir Untuk Anda</string>
+    <string name="coming_soon_detail">Mohon maaf saat ini fitur petunjuk masih dalam tahap pengembangan</string>
 </resources>
