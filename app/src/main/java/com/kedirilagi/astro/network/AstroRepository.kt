@@ -9,6 +9,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.kedirilagi.astro.extension.post
+import com.kedirilagi.astro.network.response.DataRSResponse
 import com.kedirilagi.astro.network.response.RiwayatAktivitasResponse
 import com.kedirilagi.astro.network.response.StatusPasienResponse
 import com.kedirilagi.astro.storage.persistence.AstroDatabase
@@ -27,6 +28,7 @@ class AstroRepository(
     companion object {
         const val TABLE_RIWAYAT_AKTIVITAS = "Riwayat Aktivitas"
         const val TABLE_STATUS_PASIEN = "Status Pasien"
+        const val TABLE_DATA_RS = "Data Rumah Sakit"
     }
 
     private val firebaseDatabase by lazy { FirebaseDatabase.getInstance() }
@@ -34,6 +36,8 @@ class AstroRepository(
     val riwayatAktivitas: LiveData<List<RiwayatAktivitasResponse>> = MutableLiveData()
     val statusPasien: LiveData<List<StatusPasienResponse>> = MutableLiveData()
     val lastStatusPasien: LiveData<List<StatusPasienResponse>> = MutableLiveData()
+    val dataRumahSakit: LiveData<List<DataRSResponse>> = MutableLiveData()
+
     val isLoading: LiveData<Boolean> = MutableLiveData()
     val message: LiveData<String> = MutableLiveData()
 
@@ -181,6 +185,46 @@ class AstroRepository(
             .orderByKey()
             .limitToLast(1)
         ref.addValueEventListener(getLastStatusPasienValueListener())
+        ref.keepSynced(true)
+    }
+
+    private fun getDataRSValueListener() = object : ValueEventListener {
+        override fun onCancelled(error: DatabaseError) {
+            isLoading.post(false)
+            message.post("$error")
+        }
+
+        @RequiresApi(Build.VERSION_CODES.O)
+        override fun onDataChange(snapshot: DataSnapshot) {
+            isLoading.post(false)
+
+            val dataRSResult = mutableListOf<DataRSResponse>()
+            snapshot.children.forEach { dataSnapshot ->
+                dataSnapshot.getValue(DataRSResponse::class.java)?.let { data ->
+                    data.key = dataSnapshot.key
+                    data.nama_rumah_sakit = dataSnapshot.child("nama_rumah_sakit").value.toString()
+                    data.nomer_telepon = dataSnapshot.child("nomer_telepon").value.toString()
+                    data.alamat = dataSnapshot.child("alamat").value.toString()
+                    dataRSResult.add(
+                        DataRSResponse(
+                            key = data.key,
+                            nama_rumah_sakit = data.nama_rumah_sakit,
+                            nomer_telepon = data.nomer_telepon,
+                            alamat = data.alamat
+                        )
+                    )
+                }
+            }
+            dataRumahSakit.post(dataRSResult)
+        }
+    }
+
+    suspend fun getDataRS() = withContext(Dispatchers.IO) {
+        isLoading.post(true)
+        val ref = firebaseDatabase
+            .reference
+            .child(TABLE_DATA_RS)
+        ref.addValueEventListener(getDataRSValueListener())
         ref.keepSynced(true)
     }
 
