@@ -109,7 +109,6 @@ class AstroRepository(
         override fun onDataChange(snapshot: DataSnapshot) {
             isLoading.post(false)
 
-            val tanggal = LocalDate.now().toString()
             val statusPasienResult = mutableListOf<StatusPasienResponse>()
             snapshot.children.forEach { dataSnapshot ->
                 dataSnapshot.getValue(StatusPasienResponse::class.java)?.let { aktivitas ->
@@ -117,7 +116,7 @@ class AstroRepository(
                     aktivitas.kondisi = dataSnapshot.child("kondisi").value.toString()
                     aktivitas.jam = dataSnapshot.child("jam").value.toString()
                     aktivitas.tanggal = dataSnapshot.child("tanggal").value.toString()
-                    if (aktivitas.tanggal.toString() == tanggal && aktivitas.kondisi != "Aman") {
+                    if (aktivitas.kondisi != "Aman") {
                         statusPasienResult.add(
                             StatusPasienResponse(
                                 key = aktivitas.key,
