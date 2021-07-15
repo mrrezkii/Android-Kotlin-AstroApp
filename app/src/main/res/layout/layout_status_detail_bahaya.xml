@@ -6,30 +6,78 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/gif"
-        android:layout_width="354dp"
-        android:layout_height="203dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="263dp"
+        android:layout_height="169dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.121"
+        app:layout_constraintVertical_bias="0.083"
         app:lottie_autoPlay="true"
         app:lottie_fileName="status-emergency.json"
         app:lottie_loop="true" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/open_sans_semibold"
-        android:text="@string/tidak_ada_bahaya_terdeteksi"
-        android:textColor="#FF5151"
+        android:text="@string/bahaya_terdeksi"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gif" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAktivitas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="74dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="-"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvTanggal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/open_sans"
+        android:text="-"
+        android:textColor="@color/colorBlack"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAktivitas" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvJam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/button_red_rounded_corner"
+        android:fontFamily="@font/open_sans_semibold"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="2dp"
+        android:text="-"
+        android:textColor="@color/colorWhite"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView5" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorBackground"
+        app:layout_constraintTop_toBottomOf="@+id/tvTanggal" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

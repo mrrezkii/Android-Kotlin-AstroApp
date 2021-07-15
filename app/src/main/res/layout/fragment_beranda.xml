@@ -273,24 +273,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layoutAkvititas" />
 
-        <include
-            android:id="@+id/layoutSafe"
-            layout="@layout/layout_status_aman"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutCondition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="18dp"
             android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView7" />
+            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView7">
 
-        <include
-            android:id="@+id/layoutEmergency"
-            layout="@layout/layout_status_darurat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="18dp"
-            android:layout_marginTop="20dp"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@+id/appCompatTextView7" />
+            <include
+                android:id="@+id/layoutSafe"
+                layout="@layout/layout_status_aman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/layoutEmergency"
+                layout="@layout/layout_status_darurat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/appCompatTextView8"
@@ -303,7 +307,7 @@
             android:textColor="@color/colorBlack"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layoutSafe" />
+            app:layout_constraintTop_toBottomOf="@+id/layoutCondition" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_artikel"
