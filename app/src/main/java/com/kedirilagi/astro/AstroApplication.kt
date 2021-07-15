@@ -1,6 +1,8 @@
 package com.kedirilagi.astro
 
 import android.app.Application
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.kedirilagi.astro.data.viewmodel.factory.*
 import com.kedirilagi.astro.network.AstroRepository
 import com.kedirilagi.astro.storage.persistence.AstroDatabase
@@ -33,5 +35,6 @@ class AstroApplication : Application(), KodeinAware {
     override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
+        Firebase.database.setPersistenceEnabled(true)
     }
 }

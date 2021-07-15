@@ -89,10 +89,11 @@ class AstroRepository(
 
     suspend fun getRiwayatAktivitas() = withContext(Dispatchers.IO) {
         isLoading.post(true)
-        firebaseDatabase
+        val ref = firebaseDatabase
             .reference
             .child(TABLE_RIWAYAT_AKTIVITAS)
-            .addValueEventListener(getRiwayatAktivitasValueListener())
+        ref.addValueEventListener(getRiwayatAktivitasValueListener())
+        ref.keepSynced(true)
     }
 
 }
