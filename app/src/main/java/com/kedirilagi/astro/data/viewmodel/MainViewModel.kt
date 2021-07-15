@@ -8,6 +8,7 @@ import com.kedirilagi.astro.storage.preferences.PreferencesModel
 class MainViewModel(
     val repository: AstroRepository
 ) : ViewModel() {
+    val titleBar: MutableLiveData<String> = MutableLiveData("")
     val preferences: MutableLiveData<PreferencesModel> = MutableLiveData()
 
     fun getPreferences() {

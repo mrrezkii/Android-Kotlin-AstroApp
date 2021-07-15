@@ -29,7 +29,7 @@
         android:drawablePadding="16dp"
         android:fontFamily="@font/open_sans"
         android:padding="16dp"
-        android:text="@string/cari_rumah_sakit_terdekat"
+        android:hint="@string/cari_rumah_sakit_terdekat"
         android:textColor="@color/colorGrey"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"

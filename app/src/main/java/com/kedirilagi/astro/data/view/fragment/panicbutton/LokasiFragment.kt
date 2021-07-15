@@ -5,18 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.kedirilagi.astro.R
+import com.kedirilagi.astro.data.viewmodel.MainViewModel
 import com.kedirilagi.astro.databinding.FragmentLokasiBinding
 
 class LokasiFragment : Fragment() {
 
     private lateinit var binding: FragmentLokasiBinding
+    private val viewModel by lazy { ViewModelProvider(requireActivity()).get(MainViewModel::class.java) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentLokasiBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -27,7 +30,10 @@ class LokasiFragment : Fragment() {
     }
 
     private fun setupView() {
-        setupBottomSheet()
+        viewModel.titleBar.postValue("Layanan Darurat")
+        binding.btnNext.setOnClickListener {
+            setupBottomSheet()
+        }
     }
 
     private fun setupBottomSheet() {

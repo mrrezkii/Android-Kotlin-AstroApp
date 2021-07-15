@@ -6,10 +6,11 @@ import android.view.View
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.kedirilagi.astro.R
-import com.kedirilagi.astro.data.viewmodel.PetunjukViewModel
-import com.kedirilagi.astro.data.viewmodel.factory.PetunjukViewModelFactory
+import com.kedirilagi.astro.data.viewmodel.MainViewModel
+import com.kedirilagi.astro.data.viewmodel.factory.MainViewModelFactory
 import com.kedirilagi.astro.databinding.ActivityPanicButtonBinding
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
@@ -18,8 +19,8 @@ import org.kodein.di.generic.instance
 class PanicButtonActivity : AppCompatActivity(), KodeinAware {
 
     override val kodein by kodein()
-    private val viewModelFactory: PetunjukViewModelFactory by instance()
-    private lateinit var viewModel: PetunjukViewModel
+    private val viewModelFactory: MainViewModelFactory by instance()
+    private lateinit var viewModel: MainViewModel
     private val binding: ActivityPanicButtonBinding by lazy {
         ActivityPanicButtonBinding.inflate(
             layoutInflater
@@ -34,11 +35,13 @@ class PanicButtonActivity : AppCompatActivity(), KodeinAware {
     }
 
     private fun setupViewModel() {
-        viewModel = ViewModelProvider(this, viewModelFactory).get(PetunjukViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(MainViewModel::class.java)
     }
 
     private fun setupView() {
-        binding.tvLayoutToolbar.tvToolbar.text = getString(R.string.petunjuk)
+        viewModel.titleBar.observe(this, Observer { title ->
+            binding.tvLayoutToolbar.tvToolbar.text = title
+        })
         binding.tvLayoutToolbar.ivBack.setOnClickListener {
             finish()
         }
