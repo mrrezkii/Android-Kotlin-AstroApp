@@ -10,9 +10,14 @@ class ProfilViewModel(
     val repository: AstroRepository
 ) : ViewModel() {
     val riwayatAktivitas = repository.riwayatAktivitas
+    val statusPasien = repository.statusPasien
     val message = repository.message
 
     fun getRiwayatAktivitas() = CoroutineScope(Dispatchers.IO).launch {
         repository.getRiwayatAktivitas()
+    }
+
+    fun getStatusPasien() = CoroutineScope(Dispatchers.IO).launch {
+        repository.getStatusPasien()
     }
 }

@@ -10,6 +10,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.kedirilagi.astro.extension.post
 import com.kedirilagi.astro.network.response.RiwayatAktivitasResponse
+import com.kedirilagi.astro.network.response.StatusPasienResponse
 import com.kedirilagi.astro.storage.persistence.AstroDatabase
 import com.kedirilagi.astro.storage.persistence.JadwalEntity
 import com.kedirilagi.astro.storage.preferences.AstroPreferences
@@ -25,11 +26,13 @@ class AstroRepository(
 ) {
     companion object {
         const val TABLE_RIWAYAT_AKTIVITAS = "Riwayat Aktivitas"
+        const val TABLE_STATUS_PASIEN = "Status Pasien"
     }
 
     private val firebaseDatabase by lazy { FirebaseDatabase.getInstance() }
 
     val riwayatAktivitas: LiveData<List<RiwayatAktivitasResponse>> = MutableLiveData()
+    val statusPasien: LiveData<List<StatusPasienResponse>> = MutableLiveData()
     val isLoading: LiveData<Boolean> = MutableLiveData()
     val message: LiveData<String> = MutableLiveData()
 
@@ -93,6 +96,49 @@ class AstroRepository(
             .reference
             .child(TABLE_RIWAYAT_AKTIVITAS)
         ref.addValueEventListener(getRiwayatAktivitasValueListener())
+        ref.keepSynced(true)
+    }
+
+    private fun getStatusPasienValueListener() = object : ValueEventListener {
+        override fun onCancelled(error: DatabaseError) {
+            isLoading.post(false)
+            message.post("$error")
+        }
+
+        @RequiresApi(Build.VERSION_CODES.O)
+        override fun onDataChange(snapshot: DataSnapshot) {
+            isLoading.post(false)
+
+            val tanggal = LocalDate.now().toString()
+            val statusPasienResult = mutableListOf<StatusPasienResponse>()
+            snapshot.children.forEach { dataSnapshot ->
+                dataSnapshot.getValue(StatusPasienResponse::class.java)?.let { aktivitas ->
+                    aktivitas.key = dataSnapshot.key
+                    aktivitas.kondisi = dataSnapshot.child("kondisi").value.toString()
+                    aktivitas.jam = dataSnapshot.child("jam").value.toString()
+                    aktivitas.tanggal = dataSnapshot.child("tanggal").value.toString()
+                    if (aktivitas.tanggal.toString() == tanggal && aktivitas.kondisi != "Aman") {
+                        statusPasienResult.add(
+                            StatusPasienResponse(
+                                key = aktivitas.key,
+                                kondisi = aktivitas.kondisi,
+                                jam = aktivitas.jam,
+                                tanggal = aktivitas.tanggal
+                            )
+                        )
+                    }
+                }
+            }
+            statusPasien.post(statusPasienResult)
+        }
+    }
+
+    suspend fun getStatusPasien() = withContext(Dispatchers.IO) {
+        isLoading.post(true)
+        val ref = firebaseDatabase
+            .reference
+            .child(TABLE_STATUS_PASIEN)
+        ref.addValueEventListener(getStatusPasienValueListener())
         ref.keepSynced(true)
     }
 
