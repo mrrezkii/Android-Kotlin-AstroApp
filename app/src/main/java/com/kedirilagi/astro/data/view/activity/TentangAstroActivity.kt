@@ -35,12 +35,25 @@ class TentangAstroActivity : AppCompatActivity(), KodeinAware {
     }
 
     private fun setupView() {
-        binding.tvToolbar.text = getString(R.string.dibalik_astro)
+        binding.tvToolbar.text = getString(R.string.tentang_astro)
         binding.tvBack.setOnClickListener {
             finish()
         }
         val adapter = AboutAdapter(supportFragmentManager, lifecycle)
         binding.viewpager.adapter = adapter
-        binding.dotsIndicator.setViewPager2(binding.viewpager)
+        binding.ivPrev.setOnClickListener {
+            var tab: Int = binding.viewpager.currentItem
+            if (tab != 0) {
+                tab--
+                binding.viewpager.currentItem = tab
+            } else {
+                binding.viewpager.currentItem = tab
+            }
+        }
+        binding.ivNext.setOnClickListener {
+            var tab: Int = binding.viewpager.currentItem
+            tab++
+            binding.viewpager.currentItem = tab
+        }
     }
 }
