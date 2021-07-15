@@ -16,6 +16,7 @@
     <string name="makan">Makan</string>
 
     <string name="dummy_sad">Kamu belum punya jadwal. Ayo buat jadwal</string>
+    <string name="dummy_sad_aktivitas">Pasien belum memiliki aktivitas untuk hari ini</string>
     <string name="dummy_title_article">Cari Tahu Apa Itu Penyakit Stroke</string>
     <string name="dummy_title_jadwal">Kontrol Dokter Sahrial</string>
     <string name="dummy_address">Kimia Farma, Jalan Stasiun Kediri</string>

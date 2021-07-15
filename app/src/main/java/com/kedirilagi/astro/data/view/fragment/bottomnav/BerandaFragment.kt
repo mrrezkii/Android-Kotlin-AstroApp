@@ -102,8 +102,18 @@ class BerandaFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun setupObserver() {
         observe(viewModel.riwayatAktivitas) {
-            Collections.reverse(it)
-            adapterAktivitas.setData(it)
+            if (it == null || it.isEmpty()) {
+                binding.tvSadAktivitas.viewShow()
+                binding.ivSadAktivitas.viewShow()
+                binding.listAktivitas.viewHide()
+            } else {
+                binding.tvSadAktivitas.viewHide()
+                binding.ivSadAktivitas.viewHide()
+                binding.listAktivitas.viewShow()
+
+                Collections.reverse(it)
+                adapterAktivitas.setData(it)
+            }
         }
         observe(viewModel.message) { message ->
             showToast(message)
