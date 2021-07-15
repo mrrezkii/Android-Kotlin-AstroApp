@@ -89,4 +89,6 @@
 
     <string name="coming_soon">Kami Akan Hadir Untuk Anda</string>
     <string name="coming_soon_detail">Mohon maaf saat ini fitur petunjuk masih dalam tahap pengembangan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

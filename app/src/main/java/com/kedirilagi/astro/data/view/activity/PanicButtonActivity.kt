@@ -2,13 +2,11 @@ package com.kedirilagi.astro.data.view.activity
 
 import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.kedirilagi.astro.R
 import com.kedirilagi.astro.data.viewmodel.PetunjukViewModel
 import com.kedirilagi.astro.data.viewmodel.factory.PetunjukViewModelFactory
@@ -44,19 +42,6 @@ class PanicButtonActivity : AppCompatActivity(), KodeinAware {
         binding.tvLayoutToolbar.ivBack.setOnClickListener {
             finish()
         }
-        setupBottomSheet()
-    }
-
-    private fun setupBottomSheet() {
-        val bottomSheetDialog =
-            BottomSheetDialog(this, R.style.BottomSheetDialogTheme)
-        val bottomSheetView = LayoutInflater.from(this).inflate(
-            R.layout.bottomsheet_lokasi,
-            this.findViewById(R.id.lokasi_bottomsheet)
-        )
-
-        bottomSheetDialog.setContentView(bottomSheetView)
-        bottomSheetDialog.show()
     }
 
     @Suppress("DEPRECATION")

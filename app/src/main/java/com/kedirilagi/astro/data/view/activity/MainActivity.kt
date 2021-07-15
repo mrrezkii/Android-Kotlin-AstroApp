@@ -1,5 +1,6 @@
 package com.kedirilagi.astro.data.view.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -47,6 +48,9 @@ class MainActivity : AppCompatActivity(), KodeinAware {
 
     private fun setupView() {
         setupBottomNav()
+        binding.fab.setOnClickListener {
+            startActivity(Intent(this@MainActivity, PanicButtonActivity::class.java))
+        }
     }
 
     private fun setupBottomNav() {
