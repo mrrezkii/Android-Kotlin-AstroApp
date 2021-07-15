@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.kedirilagi.astro.R
+import com.kedirilagi.astro.data.view.adapter.AboutAdapter
 import com.kedirilagi.astro.data.viewmodel.ProfilViewModel
 import com.kedirilagi.astro.data.viewmodel.factory.ProfilViewModelFactory
 import com.kedirilagi.astro.databinding.ActivityTentangAstroBinding
@@ -38,5 +39,8 @@ class TentangAstroActivity : AppCompatActivity(), KodeinAware {
         binding.tvBack.setOnClickListener {
             finish()
         }
+        val adapter = AboutAdapter(supportFragmentManager, lifecycle)
+        binding.viewpager.adapter = adapter
+        binding.dotsIndicator.setViewPager2(binding.viewpager)
     }
 }

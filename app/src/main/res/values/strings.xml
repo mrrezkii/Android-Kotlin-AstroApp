@@ -72,4 +72,13 @@
     <string name="dibalik_astro">Dibalik Astro</string>
 
     <string name="skip">Lewati</string>
+
+    <string name="nama_dosen">Dr. Eng Murman Dwi Prasetio,.S.T,. M.BA</string>
+    <string name="dosen_job">Dosen Pembimbing</string>
+    <string name="nama_ketua">Muhammad Rezki Ananda</string>
+    <string name="ketua_job">Mobile Developer</string>
+    <string name="nama_anggota_pertama">Satrio Rahman Wicaksono</string>
+    <string name="anggota_pertama_job">Machine Learning Developer</string>
+    <string name="nama_anggota_kedua">Abel Bima Wiratama</string>
+    <string name="anggota_kedua_job">IoT Engineer</string>
 </resources>
