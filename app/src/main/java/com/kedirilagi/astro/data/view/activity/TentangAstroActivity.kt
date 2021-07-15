@@ -3,6 +3,7 @@ package com.kedirilagi.astro.data.view.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.kedirilagi.astro.R
 import com.kedirilagi.astro.data.viewmodel.ProfilViewModel
 import com.kedirilagi.astro.data.viewmodel.factory.ProfilViewModelFactory
 import com.kedirilagi.astro.databinding.ActivityTentangAstroBinding
@@ -33,6 +34,7 @@ class TentangAstroActivity : AppCompatActivity(), KodeinAware {
     }
 
     private fun setupView() {
+        binding.tvToolbar.text = getString(R.string.dibalik_astro)
         binding.tvBack.setOnClickListener {
             finish()
         }

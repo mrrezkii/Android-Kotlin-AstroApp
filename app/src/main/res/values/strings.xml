@@ -68,6 +68,8 @@
     <string name="jatuh_depan">Jatuh Depan</string>
     <string name="deskripsi_riwayat_jatuh">Riwayat jatuh ditampilkan berdasarkan aktivitas sensor yang terpasang pada pasien.</string>
     <string name="deskripsi_riwayat_aktivitas">Aktivitas yang ditampilkan berdasarkan Sign Language yang diinputkan pasien.</string>
+    <string name="deskripsi_tentang_astro">Astro merupakan sebuah ekosistem realtime EWS yang  terdiri dari perangkat Sign Language Classification dan  piranti cerdas pendeteksi jatuh yang digunakan pasien. Kedua device tersebut terhubung dengan wifi dan dapat diakses realtime menggunakan smartphone.</string>
+    <string name="dibalik_astro">Dibalik Astro</string>
 
     <string name="skip">Lewati</string>
 </resources>
