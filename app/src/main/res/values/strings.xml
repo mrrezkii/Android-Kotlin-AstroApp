@@ -73,6 +73,10 @@
     <string name="dibalik_astro">Dibalik Astro</string>
 
     <string name="skip">Lewati</string>
+    <string name="mulai_sekarang">Mulai Sekarang</string>
+    <string name="title_1">Astro dilengkapi dengan piranti cerdas berisi sensor yang dipasangkan ke tubuh pasien untuk memberikan sinyal bahaya apabila pasien dalam keadaan jatuh atau butuh pertolongan</string>
+    <string name="title_2">ASTRO dilengkapi juga dengan Sign Language Classification yang membantu pasien Stroke Iskemik berkomunikasi dalam memenuhi kebutuhan seperti makan, minum, dan lain sebagainya.</string>
+    <string name="title_3">Kedua perangkat tersebut dapat diakses secara Realtime di mobile menggunakan jaringan internet. Di ASTRO app kamu juga dapat menambahkan jadwal, melihat daftar rumah sakit, dan banyak hal penting lainnya. </string>
 
     <string name="nama_dosen">Dr. Eng Murman Dwi Prasetio,.S.T,. M.BA</string>
     <string name="dosen_job">Dosen Pembimbing</string>

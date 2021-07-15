@@ -85,8 +85,8 @@ class BerandaFragment : Fragment() {
         binding.tvHari.text = hari.toString()
         binding.tvTanggal.text = currDate
 
-        binding.layoutSafe.root.viewHide()
-        binding.layoutEmergency.root.viewShow()
+        binding.layoutSafe.root.viewShow()
+        binding.layoutEmergency.root.viewHide()
 
 
         binding.layoutSafe.root.setOnClickListener {
