@@ -1,7 +1,6 @@
 package com.kedirilagi.astro.data.view.fragment.panicbutton
 
 import android.os.Bundle
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.kedirilagi.astro.data.viewmodel.MainViewModel
 import com.kedirilagi.astro.databinding.FragmentSendMessageBinding
+import com.kedirilagi.astro.utils.toEditable
 
 class SendMessageFragment : Fragment() {
 
@@ -32,8 +32,6 @@ class SendMessageFragment : Fragment() {
         viewModel.titleBar.postValue("Layanan Darurat")
         setupHint()
     }
-
-    fun String.toEditable(): Editable = Editable.Factory.getInstance().newEditable(this)
 
     private fun setupHint() {
         binding.hint1.setOnClickListener {

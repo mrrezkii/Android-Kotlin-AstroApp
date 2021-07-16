@@ -1,6 +1,7 @@
 package com.kedirilagi.astro.utils
 
 import android.app.Activity
+import android.text.Editable
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -29,3 +30,5 @@ fun SwipeRefreshLayout.swipeShow() {
 fun SwipeRefreshLayout.swipeHide() {
     isRefreshing = false
 }
+
+fun String.toEditable(): Editable = Editable.Factory.getInstance().newEditable(this)
