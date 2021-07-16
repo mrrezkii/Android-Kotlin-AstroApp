@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.core.os.bundleOf
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -92,9 +91,11 @@ class LokasiFragment : Fragment() {
 
         val list = bottomSheetView.findViewById<RecyclerView>(R.id.list_lokasi)
         val searchView = bottomSheetView.findViewById<EditText>(R.id.searchView)
-        searchView.doAfterTextChanged {
-            adapter.filter.filter(it.toString())
+        searchView.setOnClickListener {
+            findNavController().navigate(R.id.action_lokasiFragment_to_detailLokasiFragment)
+            bottomSheetDialog.dismiss()
         }
+
         list.adapter = adapter
 
         bottomSheetDialog.setContentView(bottomSheetView)
