@@ -9,5 +9,18 @@
         android:id="@+id/lokasiFragment"
         android:name="com.kedirilagi.astro.data.view.fragment.panicbutton.LokasiFragment"
         android:label="fragment_lokasi"
-        tools:layout="@layout/fragment_lokasi" />
+        tools:layout="@layout/fragment_lokasi">
+        <action
+            android:id="@+id/action_lokasiFragment_to_sendMessageFragment"
+            app:destination="@id/sendMessageFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_right"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendMessageFragment"
+        android:name="com.kedirilagi.astro.data.view.fragment.panicbutton.SendMessageFragment"
+        android:label="fragment_send_message"
+        tools:layout="@layout/fragment_send_message" />
 </navigation>
