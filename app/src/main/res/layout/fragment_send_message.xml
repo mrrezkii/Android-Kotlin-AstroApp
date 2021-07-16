@@ -1,14 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".data.view.fragment.panicbutton.SendMessageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/open_sans"
+        android:text="Tuliskan keadaan daruratmu disini"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/edittext_rounded_corner"
+        android:fontFamily="@font/open_sans"
+        android:gravity="top|left"
+        android:hint="Pasien jatuh, apa yang harus saya lakukan?"
+        android:minLines="5"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="9dp"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbars="vertical"
+        android:textColor="@color/colorGrey"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView16" />
+
+    <com.nex3z.flowlayout.FlowLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        app:flChildSpacingForLastRow="align"
+        app:layout_constraintTop_toBottomOf="@+id/etMessage">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/hint1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_next_rounded_corner"
+            android:fontFamily="@font/open_sans"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:text="Saya Butuh Ambulance"
+            android:textColor="@color/colorWhite"
+            android:textSize="11sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/hint2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_next_rounded_corner"
+            android:fontFamily="@font/open_sans"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:text="Pasien Sakit Dada Hebat"
+            android:textColor="@color/colorWhite"
+            android:textSize="11sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/hint3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_next_rounded_corner"
+            android:fontFamily="@font/open_sans"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:text="Pasien Kejang"
+            android:textColor="@color/colorWhite"
+            android:textSize="11sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/hint4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_next_rounded_corner"
+            android:fontFamily="@font/open_sans"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:text="Pasien Mendadak Tidak Sadar"
+            android:textColor="@color/colorWhite"
+            android:textSize="11sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/hint5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_next_rounded_corner"
+            android:fontFamily="@font/open_sans"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:text="Pasien Mengalami Pendarahan"
+            android:textColor="@color/colorWhite"
+            android:textSize="11sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/hint6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_next_rounded_corner"
+            android:fontFamily="@font/open_sans"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:text="Diare Pasien Tak Kunjung Henti"
+            android:textColor="@color/colorWhite"
+            android:textSize="11sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/hint7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_next_rounded_corner"
+            android:fontFamily="@font/open_sans"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:text="Pasien Demam Tinggi"
+            android:textColor="@color/colorWhite"
+            android:textSize="11sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/hint8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_next_rounded_corner"
+            android:fontFamily="@font/open_sans"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:text="Muntah Darah"
+            android:textColor="@color/colorWhite"
+            android:textSize="11sp" />
+
+
+    </com.nex3z.flowlayout.FlowLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
