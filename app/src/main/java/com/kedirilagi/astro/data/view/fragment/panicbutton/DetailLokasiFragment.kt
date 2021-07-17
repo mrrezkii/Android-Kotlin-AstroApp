@@ -50,7 +50,7 @@ class DetailLokasiFragment : Fragment() {
     }
 
     private fun setupView() {
-        viewModel.titleBar.postValue("Layanan Darurat")
+        viewModel.titleBar.postValue("Lokasi Rumah Sakit")
         binding.layoutBottomSheet.searchView.post {
             showKeyboard(
                 context,

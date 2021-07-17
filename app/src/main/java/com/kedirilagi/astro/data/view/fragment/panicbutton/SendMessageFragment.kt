@@ -55,7 +55,7 @@ class SendMessageFragment : Fragment() {
         binding.ivSend.setOnClickListener {
             val msg = binding.etMessage.text
             val uri =
-                Uri.parse("https://api.whatsapp.com/send?phone=$nomerRumahSakit&text=Hallo%2C%20$namaRumahSakit.%20%0APerkenalkan%20saya%20perawat%20dari%20Alvin.%20Saat%20ini%20Alvin%20sedang%20*membutuhkan%20pertolongan%20darurat*%20dengan%20kondisi%20%3A%0A$msg%0A%20%20%20%20%0ATolong%20segera%20kirim%20bantuan%20ke%20alamat%20%3A%0Ahttps%3A%2F%2Fmaps.google.com%2Fmaps%3Fq%3D$lat%2C%20$long")
+                Uri.parse("https://api.whatsapp.com/send?phone=$nomerRumahSakit&text=Hallo%2C%20$namaRumahSakit.%20%0APerkenalkan%20saya%20perawat%20dari%20Alvin.%20Saat%20ini%20Alvin%20sedang%20*membutuhkan%20pertolongan%20darurat*%20dengan%20kondisi%20%3A%0A$msg%0A%20%20%20%20%0ATolong%20segera%20kirim%20bantuan%20ke%20alamat%20%3A%0Ahttps%3A%2F%2Fmaps.google.com%2Fmaps%3Fq%3D$lat%2C$long")
             when {
                 msg.isNullOrBlank() -> showToast("Masukkan pesan darurat dulu")
                 else -> {
@@ -68,8 +68,6 @@ class SendMessageFragment : Fragment() {
                     } else {
                         showToast("WhatsApp not Installed")
                     }
-                    showToast(" lat : $lat")
-                    showToast(" ling : $long")
                 }
             }
         }

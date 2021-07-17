@@ -60,7 +60,7 @@ class LokasiFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
     }
 
     private fun setupView(savedInstanceState: Bundle?) {
-        viewModel.titleBar.postValue("Lokasi Rumah Sakit")
+        viewModel.titleBar.postValue("Layanan darurat")
         binding.btnNext.setOnClickListener {
             setupBottomSheet()
             val lat = mapboxMap.cameraPosition.target.latitude.toString()
@@ -208,6 +208,7 @@ class LokasiFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
 
         bottomSheetDialog.setContentView(bottomSheetView)
         bottomSheetDialog.show()
+        viewModel.titleBar.postValue("Lokasi Rumah Sakit")
     }
 
 }
