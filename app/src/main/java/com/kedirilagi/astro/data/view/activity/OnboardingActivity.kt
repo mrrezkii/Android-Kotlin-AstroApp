@@ -49,7 +49,7 @@ class OnboardingActivity : AppCompatActivity(), KodeinAware {
                     MainActivity::class.java
                 )
             )
-            viewModel.savePrefFist(false)
+            viewModel.savePrefFirst(false)
             finish()
         }
     }

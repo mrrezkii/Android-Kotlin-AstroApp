@@ -71,7 +71,7 @@ class SplashScreenActivity : AppCompatActivity(), KodeinAware {
     }
 
     private fun setupListener() {
-        viewModel.getPreferences()
+        viewModel.getPreferencesOnboarding()
     }
 
     private fun setupObserver() {

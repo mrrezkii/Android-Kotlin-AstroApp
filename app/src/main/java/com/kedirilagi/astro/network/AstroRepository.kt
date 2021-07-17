@@ -14,9 +14,7 @@ import com.kedirilagi.astro.network.response.RiwayatAktivitasResponse
 import com.kedirilagi.astro.network.response.StatusPasienResponse
 import com.kedirilagi.astro.storage.persistence.AstroDatabase
 import com.kedirilagi.astro.storage.persistence.JadwalEntity
-import com.kedirilagi.astro.storage.preferences.AstroPreferences
-import com.kedirilagi.astro.storage.preferences.PreferencesOnboardingModel
-import com.kedirilagi.astro.storage.preferences.prefFirst
+import com.kedirilagi.astro.storage.preferences.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.time.LocalDate
@@ -47,6 +45,18 @@ class AstroRepository(
 
     fun getPreferencesOnboarding(): PreferencesOnboardingModel {
         return PreferencesOnboardingModel(pref.getBoolean(prefFirst))
+    }
+
+    fun savePreferencesCoodinate(lat: String?, long: String?) {
+        pref.put(prefLat, lat!!)
+        pref.put(prefLong, long!!)
+    }
+
+    fun getPreferencesCoodinate(): PreferencesCoordinateModel {
+        return PreferencesCoordinateModel(
+            lat = pref.getString(prefLat),
+            long = pref.getString(prefLong)
+        )
     }
 
     suspend fun saveDataJadwal(entity: JadwalEntity) {

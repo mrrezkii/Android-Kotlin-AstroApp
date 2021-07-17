@@ -37,7 +37,7 @@ class Onboarding3rdFragment : Fragment() {
                     MainActivity::class.java
                 )
             )
-            viewModel.savePrefFist(false)
+            viewModel.savePrefFirst(false)
             requireActivity().finish()
         }
     }

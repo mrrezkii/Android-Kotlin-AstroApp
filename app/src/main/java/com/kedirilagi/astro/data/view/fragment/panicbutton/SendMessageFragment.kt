@@ -9,11 +9,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.kedirilagi.astro.data.viewmodel.MainViewModel
 import com.kedirilagi.astro.databinding.FragmentSendMessageBinding
 import com.kedirilagi.astro.utils.showToast
 import com.kedirilagi.astro.utils.toEditable
+import timber.log.Timber
 
 
 class SendMessageFragment : Fragment() {
@@ -24,6 +26,9 @@ class SendMessageFragment : Fragment() {
     private val namaRumahSakit by lazy { requireArguments().getString("nama_rs") }
     private val alamatRumahSakit by lazy { requireArguments().getString("alamat") }
     private val nomerRumahSakit by lazy { requireArguments().getString("nomor") }
+
+    private var lat: String? = "-7.83051223405142"
+    private var long: String? = "112.02099120059324"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,13 +43,19 @@ class SendMessageFragment : Fragment() {
         setupView()
     }
 
+    override fun onStart() {
+        super.onStart()
+        viewModel.getPreferencesCoordinate()
+    }
+
     private fun setupView() {
-        viewModel.titleBar.postValue("Layanan Darurat")
+        viewModel.titleBar.postValue("Kirim Pesan Darurat")
         setupHint()
+        setupObserver()
         binding.ivSend.setOnClickListener {
             val msg = binding.etMessage.text
             val uri =
-                Uri.parse("https://api.whatsapp.com/send?phone=$nomerRumahSakit&text=Hallo%2C%20$namaRumahSakit.%20%0APerkenalkan%20saya%20perawat%20dari%20Alvin.%20Saat%20ini%20Alvin%20sedang%20*membutuhkan%20pertolongan%20darurat*%20dengan%20kondisi%20%3A%0A$msg%0A%20%20%20%20%0ATolong%20segera%20kirim%20bantuan%20ke%20alamat%20%3A%0Ahttps%3A%2F%2Fmaps.google.com%2Fmaps%3Fq%3D-7.83051223405142%2C%2520112.02099120059324")
+                Uri.parse("https://api.whatsapp.com/send?phone=$nomerRumahSakit&text=Hallo%2C%20$namaRumahSakit.%20%0APerkenalkan%20saya%20perawat%20dari%20Alvin.%20Saat%20ini%20Alvin%20sedang%20*membutuhkan%20pertolongan%20darurat*%20dengan%20kondisi%20%3A%0A$msg%0A%20%20%20%20%0ATolong%20segera%20kirim%20bantuan%20ke%20alamat%20%3A%0Ahttps%3A%2F%2Fmaps.google.com%2Fmaps%3Fq%3D$lat%2C%20$long")
             when {
                 msg.isNullOrBlank() -> showToast("Masukkan pesan darurat dulu")
                 else -> {
@@ -54,13 +65,23 @@ class SendMessageFragment : Fragment() {
                         intent.data =
                             uri
                         requireActivity().startActivity(intent)
-
                     } else {
                         showToast("WhatsApp not Installed")
                     }
+                    showToast(" lat : $lat")
+                    showToast(" ling : $long")
                 }
             }
         }
+    }
+
+    private fun setupObserver() {
+        viewModel.preferencesCoordinate.observe(viewLifecycleOwner, Observer {
+            lat = it.lat
+            long = it.long
+            Timber.d("Cek lat : $lat")
+            Timber.d("Cek long : $long")
+        })
     }
 
     private fun setupHint() {
