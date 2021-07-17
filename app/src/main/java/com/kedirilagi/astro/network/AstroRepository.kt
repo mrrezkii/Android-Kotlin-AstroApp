@@ -15,7 +15,7 @@ import com.kedirilagi.astro.network.response.StatusPasienResponse
 import com.kedirilagi.astro.storage.persistence.AstroDatabase
 import com.kedirilagi.astro.storage.persistence.JadwalEntity
 import com.kedirilagi.astro.storage.preferences.AstroPreferences
-import com.kedirilagi.astro.storage.preferences.PreferencesModel
+import com.kedirilagi.astro.storage.preferences.PreferencesOnboardingModel
 import com.kedirilagi.astro.storage.preferences.prefFirst
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -45,8 +45,8 @@ class AstroRepository(
         pref.put(prefFirst, first!!)
     }
 
-    fun getPreferencesOnboarding(): PreferencesModel {
-        return PreferencesModel(pref.getBoolean(prefFirst))
+    fun getPreferencesOnboarding(): PreferencesOnboardingModel {
+        return PreferencesOnboardingModel(pref.getBoolean(prefFirst))
     }
 
     suspend fun saveDataJadwal(entity: JadwalEntity) {

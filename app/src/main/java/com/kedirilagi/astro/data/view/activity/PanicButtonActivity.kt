@@ -45,7 +45,7 @@ class PanicButtonActivity : AppCompatActivity(), KodeinAware {
             binding.tvLayoutToolbar.tvToolbar.text = title
         })
         binding.tvLayoutToolbar.ivBack.setOnClickListener {
-            finish()
+            onBackPressed()
         }
     }
 

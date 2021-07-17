@@ -75,7 +75,7 @@ class SplashScreenActivity : AppCompatActivity(), KodeinAware {
     }
 
     private fun setupObserver() {
-        viewModel.preferences.observe(this, Observer {
+        viewModel.preferencesOnboarding.observe(this, Observer {
             when (it.firstTime) {
                 true -> delayOnboarding()
                 false -> delayMain()

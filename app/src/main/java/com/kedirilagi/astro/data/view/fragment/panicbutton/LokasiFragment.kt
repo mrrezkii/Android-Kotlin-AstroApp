@@ -29,6 +29,7 @@ import com.mapbox.mapboxsdk.location.modes.RenderMode
 import com.mapbox.mapboxsdk.maps.MapboxMap
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback
 import com.mapbox.mapboxsdk.maps.Style
+import timber.log.Timber
 
 class LokasiFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
 
@@ -63,6 +64,8 @@ class LokasiFragment : Fragment(), OnMapReadyCallback, PermissionsListener {
         viewModel.titleBar.postValue("Layanan Darurat")
         binding.btnNext.setOnClickListener {
             setupBottomSheet()
+            Timber.e("${mapboxMap.cameraPosition.target.longitude}")
+            Timber.e("${mapboxMap.cameraPosition.target.latitude}")
         }
         binding.mapView.onCreate(savedInstanceState)
         binding.mapView.getMapAsync(this)
