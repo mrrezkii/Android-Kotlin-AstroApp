@@ -10,9 +10,6 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.4"
         classpath 'com.google.gms:google-services:4.3.8'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
     }
 }
 
@@ -21,6 +18,18 @@ allprojects {
         google()
         mavenCentral()
         maven { url "https://jitpack.io" }
+        maven {
+            url 'https://api.mapbox.com/downloads/v2/releases/maven'
+            authentication {
+                basic(BasicAuthentication)
+            }
+            credentials {
+                username = 'mapbox'
+                // Use the secret token you stored in gradle.properties as the password
+                //password = "${BuildConfig.MAP_BOX_API_KEY}"
+                password = "sk.eyJ1Ijoia2VkaXJpbGFnaSIsImEiOiJja3I3NmU5dWkzbHVuMnpxYW00OGc1Nm9uIn0.pSt0ePvXF0L-Uc_MLcw1nw"
+            }
+        }
     }
 }
 

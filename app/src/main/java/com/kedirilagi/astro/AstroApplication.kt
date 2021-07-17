@@ -7,6 +7,7 @@ import com.kedirilagi.astro.data.viewmodel.factory.*
 import com.kedirilagi.astro.network.AstroRepository
 import com.kedirilagi.astro.storage.persistence.AstroDatabase
 import com.kedirilagi.astro.storage.preferences.AstroPreferences
+import com.mapbox.mapboxsdk.Mapbox
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -36,5 +37,6 @@ class AstroApplication : Application(), KodeinAware {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
         Firebase.database.setPersistenceEnabled(true)
+        Mapbox.getInstance(this, BuildConfig.MAP_BOX_SECRET_KEY)
     }
 }

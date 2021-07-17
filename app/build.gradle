@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id "androidx.navigation.safeargs"
     id 'com.google.gms.google-services'
+    id 'com.google.secrets_gradle_plugin' version '0.4'
 }
 
 android {
@@ -88,6 +89,9 @@ dependencies {
     // Firebase
     implementation 'com.google.firebase:firebase-analytics-ktx:19.0.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.0.0'
+
+    // Mapbox
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.2'
     
     // Utils
     implementation 'com.jakewharton.timber:timber:4.7.1'
