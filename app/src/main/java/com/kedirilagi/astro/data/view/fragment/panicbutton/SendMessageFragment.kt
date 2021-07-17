@@ -1,5 +1,9 @@
 package com.kedirilagi.astro.data.view.fragment.panicbutton
 
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.content.pm.PackageManager.NameNotFoundException
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +12,18 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.kedirilagi.astro.data.viewmodel.MainViewModel
 import com.kedirilagi.astro.databinding.FragmentSendMessageBinding
+import com.kedirilagi.astro.utils.showToast
 import com.kedirilagi.astro.utils.toEditable
+
 
 class SendMessageFragment : Fragment() {
 
     private lateinit var binding: FragmentSendMessageBinding
     private val viewModel by lazy { ViewModelProvider(requireActivity()).get(MainViewModel::class.java) }
+
+    private val namaRumahSakit by lazy { requireArguments().getString("nama_rs") }
+    private val alamatRumahSakit by lazy { requireArguments().getString("alamat") }
+    private val nomerRumahSakit by lazy { requireArguments().getString("nomor") }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +41,26 @@ class SendMessageFragment : Fragment() {
     private fun setupView() {
         viewModel.titleBar.postValue("Layanan Darurat")
         setupHint()
+        binding.ivSend.setOnClickListener {
+            val msg = binding.etMessage.text
+            val uri =
+                Uri.parse("https://api.whatsapp.com/send?phone=$nomerRumahSakit&text=Hallo%2C%20$namaRumahSakit.%20%0APerkenalkan%20saya%20perawat%20dari%20Alvin.%20Saat%20ini%20Alvin%20sedang%20*membutuhkan%20pertolongan%20darurat*%20dengan%20kondisi%20%3A%0A$msg%0A%20%20%20%20%0ATolong%20segera%20kirim%20bantuan%20ke%20alamat%20%3A%0Ahttps%3A%2F%2Fmaps.google.com%2Fmaps%3Fq%3D-7.83051223405142%2C%2520112.02099120059324")
+            when {
+                msg.isNullOrBlank() -> showToast("Masukkan pesan darurat dulu")
+                else -> {
+                    val installed: Boolean = appInstallOrNot("com.whatsapp")
+                    if (installed) {
+                        val intent = Intent(Intent.ACTION_VIEW)
+                        intent.data =
+                            uri
+                        requireActivity().startActivity(intent)
+
+                    } else {
+                        showToast("WhatsApp not Installed")
+                    }
+                }
+            }
+        }
     }
 
     private fun setupHint() {
@@ -67,6 +97,17 @@ class SendMessageFragment : Fragment() {
                 ("${binding.etMessage.text.toString()} ${binding.hint8.text}").toEditable()
         }
 
+    }
+
+
+    private fun appInstallOrNot(url: String): Boolean {
+        val packageManager: PackageManager = requireActivity().packageManager
+        return try {
+            packageManager.getPackageInfo(url, PackageManager.GET_ACTIVITIES)
+            true
+        } catch (e: NameNotFoundException) {
+            false
+        }
     }
 
 }
