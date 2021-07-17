@@ -10,6 +10,8 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.kedirilagi.astro.data.constant.artikelDummy
+import com.kedirilagi.astro.data.view.activity.JadwalActivity
+import com.kedirilagi.astro.data.view.activity.RiwayatAktivitasActivity
 import com.kedirilagi.astro.data.view.activity.StatusActivity
 import com.kedirilagi.astro.data.view.adapter.AktivitasAdapter
 import com.kedirilagi.astro.data.view.adapter.ArtikelAdapter
@@ -97,6 +99,14 @@ class BerandaFragment : Fragment() {
             val intent = Intent(requireContext(), StatusActivity::class.java)
             intent.putExtra("kondisi", false)
             startActivity(intent)
+        }
+
+        binding.ivMoreJadwal.setOnClickListener {
+            startActivity(Intent(requireContext(), JadwalActivity::class.java))
+        }
+
+        binding.ivMoreAktivitas.setOnClickListener {
+            startActivity(Intent(requireContext(), RiwayatAktivitasActivity::class.java))
         }
     }
 
