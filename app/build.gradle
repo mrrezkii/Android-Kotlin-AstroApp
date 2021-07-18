@@ -89,6 +89,7 @@ dependencies {
     // Firebase
     implementation 'com.google.firebase:firebase-analytics-ktx:19.0.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.0.0'
+    implementation 'com.google.firebase:firebase-messaging-ktx:22.0.0'
 
     // Mapbox
     implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:9.6.2'

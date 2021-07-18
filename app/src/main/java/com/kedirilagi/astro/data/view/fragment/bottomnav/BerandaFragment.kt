@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.kedirilagi.astro.data.constant.artikelDummy
+import com.kedirilagi.astro.constant.artikelDummy
 import com.kedirilagi.astro.data.view.activity.JadwalActivity
 import com.kedirilagi.astro.data.view.activity.RiwayatAktivitasActivity
 import com.kedirilagi.astro.data.view.activity.StatusActivity

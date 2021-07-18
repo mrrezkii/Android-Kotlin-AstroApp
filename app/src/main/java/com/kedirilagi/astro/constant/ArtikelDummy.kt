@@ -1,4 +1,4 @@
-package com.kedirilagi.astro.data.constant
+package com.kedirilagi.astro.constant
 
 import com.kedirilagi.astro.data.model.ArtikelModel
 
