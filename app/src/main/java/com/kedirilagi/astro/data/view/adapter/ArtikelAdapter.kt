@@ -8,11 +8,16 @@ import com.kedirilagi.astro.data.model.ArtikelModel
 import com.kedirilagi.astro.databinding.AdapterArtikelBinding
 
 class ArtikelAdapter(
-    var artikels: ArrayList<ArtikelModel>
+    var artikels: ArrayList<ArtikelModel>,
+    val listerner: OnAdapterListener
 ) : RecyclerView.Adapter<ArtikelAdapter.ViewHolder>() {
 
 
     class ViewHolder(val binding: AdapterArtikelBinding) : RecyclerView.ViewHolder(binding.root)
+
+    interface OnAdapterListener {
+        fun onClick(result: ArtikelModel)
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
@@ -26,6 +31,9 @@ class ArtikelAdapter(
             .load(artikel.photo)
             .centerCrop()
             .into(holder.binding.ivArtikel)
+        holder.binding.container.setOnClickListener {
+            listerner.onClick(artikel)
+        }
     }
 
     override fun getItemCount() = artikels.size

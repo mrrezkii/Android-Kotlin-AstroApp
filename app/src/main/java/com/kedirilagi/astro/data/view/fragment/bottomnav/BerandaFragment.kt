@@ -10,6 +10,8 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.kedirilagi.astro.constant.artikelDummy
+import com.kedirilagi.astro.data.model.ArtikelModel
+import com.kedirilagi.astro.data.view.activity.DetailArtikelActivity
 import com.kedirilagi.astro.data.view.activity.JadwalActivity
 import com.kedirilagi.astro.data.view.activity.RiwayatAktivitasActivity
 import com.kedirilagi.astro.data.view.activity.StatusActivity
@@ -175,7 +177,14 @@ class BerandaFragment : Fragment() {
     }
 
     private fun setAdapterArtikel() {
-        adapterArtikel = ArtikelAdapter(artikelDummy())
+        adapterArtikel = ArtikelAdapter(artikelDummy(), object : ArtikelAdapter.OnAdapterListener {
+            override fun onClick(result: ArtikelModel) {
+                val intent = Intent(view!!.context, DetailArtikelActivity::class.java)
+                intent.putExtra("judul", result.judul)
+                intent.putExtra("url", result.url)
+                startActivity(intent)
+            }
+        })
         binding.listArtikel.adapter = adapterArtikel
     }
 

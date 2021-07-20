@@ -8,21 +8,24 @@ fun artikelDummy(): ArrayList<ArtikelModel> {
         ArtikelModel(
             1,
             "Cari Tahu Apa Itu Penyakit Stroke",
-            "https://d1bpj0tv6vfxyp.cloudfront.net/articles/713965_12-1-2021_12-5-36.webp"
+            "https://d1bpj0tv6vfxyp.cloudfront.net/articles/713965_12-1-2021_12-5-36.webp",
+            "https://www.halodoc.com/kesehatan/stroke"
         )
     )
     listAdapter.add(
         ArtikelModel(
             2,
             "Mengidap Stroke Apa yang Perlu dilakukan?",
-            "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2021/06/15062450/mengidap-stroke-apa-yang-perlu-dilakukan-halodoc.jpg.webp"
+            "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2021/06/15062450/mengidap-stroke-apa-yang-perlu-dilakukan-halodoc.jpg.webp",
+            "https://www.halodoc.com/artikel/mengidap-stroke-apa-yang-perlu-dilakukan"
         )
     )
     listAdapter.add(
         ArtikelModel(
             3,
             "Ketahui Penanganan Stroke Berdasarkan Jenisnya",
-            "https://d1bpj0tv6vfxyp.cloudfront.net/articles/880906_12-5-2021_4-36-36.webp"
+            "https://d1bpj0tv6vfxyp.cloudfront.net/articles/880906_12-5-2021_4-36-36.webp",
+            "https://www.halodoc.com/artikel/ketahui-penanganan-stroke-berdasarkan-jenisnya"
         )
     )
 
