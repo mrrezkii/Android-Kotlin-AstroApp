@@ -3,12 +3,12 @@ package com.kedirilagi.astro.service
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.media.MediaPlayer
-import com.kedirilagi.astro.R
+import com.kedirilagi.astro.data.view.activity.StatusActivity
 
 class AlarmService : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
-        var mp = MediaPlayer.create(context, R.raw.alert)
-        mp.start()
+        val i = Intent(context, StatusActivity::class.java)
+        i.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        context!!.startActivity(i)
     }
 }

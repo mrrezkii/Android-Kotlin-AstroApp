@@ -1,12 +1,14 @@
 package com.kedirilagi.astro.data.view.activity
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
+import com.kedirilagi.astro.R
 import com.kedirilagi.astro.data.viewmodel.BerandaViewModel
 import com.kedirilagi.astro.data.viewmodel.factory.BerandaViewModelFactory
 import com.kedirilagi.astro.databinding.ActivityStatusBinding
@@ -36,6 +38,7 @@ class StatusActivity : AppCompatActivity(), KodeinAware {
         )
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -68,6 +71,8 @@ class StatusActivity : AppCompatActivity(), KodeinAware {
         if (!kondisi) {
             binding.layoutSafe.root.viewHide()
             binding.layoutEmergeny.root.viewShow()
+            val mp = MediaPlayer.create(applicationContext, R.raw.alert)
+            mp.start()
         }
     }
 
