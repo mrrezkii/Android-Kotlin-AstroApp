@@ -1,8 +1,5 @@
 package com.kedirilagi.astro.data.view.fragment.bottomnav
 
-import android.app.AlarmManager
-import android.app.PendingIntent
-import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -27,7 +24,6 @@ import com.kedirilagi.astro.extension.dayExtension
 import com.kedirilagi.astro.extension.monthExtension
 import com.kedirilagi.astro.extension.observe
 import com.kedirilagi.astro.network.AstroRepository
-import com.kedirilagi.astro.service.AlarmService
 import com.kedirilagi.astro.storage.persistence.AstroDatabase
 import com.kedirilagi.astro.storage.preferences.AstroPreferences
 import com.kedirilagi.astro.utils.showToast
@@ -93,16 +89,6 @@ class BerandaFragment : Fragment() {
 
         binding.tvHari.text = hari.toString()
         binding.tvTanggal.text = currDate
-
-        binding.appCompatImageView3.setOnClickListener {
-            var sec: Int = 5
-            var i = Intent(requireActivity().applicationContext, AlarmService::class.java)
-            var pi = PendingIntent.getBroadcast(requireActivity().applicationContext, 111, i, 0)
-            var am: AlarmManager =
-                requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
-            am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (sec * 1000), pi)
-
-        }
 
 
         binding.layoutSafe.root.setOnClickListener {

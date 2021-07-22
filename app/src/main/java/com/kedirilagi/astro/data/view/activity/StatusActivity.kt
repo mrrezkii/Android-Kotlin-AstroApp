@@ -58,6 +58,7 @@ class StatusActivity : AppCompatActivity(), KodeinAware {
     }
 
     private fun setupView() {
+        val mp = MediaPlayer.create(applicationContext, R.raw.alert)
         binding.tvBack.setOnClickListener {
             if (isTaskRoot) {
                 startActivity(Intent(this@StatusActivity, MainActivity::class.java))
@@ -71,8 +72,10 @@ class StatusActivity : AppCompatActivity(), KodeinAware {
         if (!kondisi) {
             binding.layoutSafe.root.viewHide()
             binding.layoutEmergeny.root.viewShow()
-            val mp = MediaPlayer.create(applicationContext, R.raw.alert)
             mp.start()
+            mp.isLooping = true
+        } else {
+            mp.stop()
         }
     }
 
@@ -89,6 +92,8 @@ class StatusActivity : AppCompatActivity(), KodeinAware {
                 val date = "$hari, ${tanggal.dayOfMonth} $bulan ${tanggal.year}"
 
                 binding.layoutEmergeny.tvTanggal.text = date
+
+                if (it.kondisi == "Aman") finish()
             }
         }
         observe(viewModel.message) { message ->

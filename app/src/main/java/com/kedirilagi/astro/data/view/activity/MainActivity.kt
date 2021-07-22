@@ -1,5 +1,8 @@
 package com.kedirilagi.astro.data.view.activity
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +18,9 @@ import com.kedirilagi.astro.data.viewmodel.factory.BerandaViewModelFactory
 import com.kedirilagi.astro.data.viewmodel.factory.JadwalViewModelFactory
 import com.kedirilagi.astro.data.viewmodel.factory.MainViewModelFactory
 import com.kedirilagi.astro.databinding.ActivityMainBinding
+import com.kedirilagi.astro.extension.observe
+import com.kedirilagi.astro.service.AlarmService
+import com.kedirilagi.astro.utils.showToast
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.generic.instance
@@ -38,6 +44,7 @@ class MainActivity : AppCompatActivity(), KodeinAware {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         setupViewModel()
         setupView()
+        setupObserve()
     }
 
     private fun setupViewModel() {
@@ -92,7 +99,27 @@ class MainActivity : AppCompatActivity(), KodeinAware {
                 else -> false
             }
         }
+    }
 
+    override fun onResume() {
+        super.onResume()
+        mainViewModel.getLastStatusPasien()
+    }
 
+    private fun setupObserve() {
+        observe(mainViewModel.statusPasien) {
+            it.forEach {
+                if (it.kondisi != "Aman") {
+                    val sec = 2
+                    val i = Intent(applicationContext, AlarmService::class.java)
+                    val pi = PendingIntent.getBroadcast(applicationContext, 111, i, 0)
+                    val am: AlarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                    am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (sec * 1000), pi)
+                }
+            }
+        }
+        observe(mainViewModel.message) { message ->
+            showToast(message)
+        }
     }
 }

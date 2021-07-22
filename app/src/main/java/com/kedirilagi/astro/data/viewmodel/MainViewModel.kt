@@ -17,6 +17,7 @@ class MainViewModel(
     val preferencesCoordinate: MutableLiveData<PreferencesCoordinateModel> = MutableLiveData()
     val dataRumahSakit = repository.dataRumahSakit
     val message = repository.message
+    val statusPasien = repository.lastStatusPasien
 
     fun getPreferencesOnboarding() {
         preferencesOnboarding.value = repository.getPreferencesOnboarding()
@@ -36,5 +37,9 @@ class MainViewModel(
 
     fun getDataRS() = CoroutineScope(Dispatchers.IO).launch {
         repository.getDataRS()
+    }
+
+    fun getLastStatusPasien() = CoroutineScope(Dispatchers.IO).launch {
+        repository.getLastStatusPasien()
     }
 }
