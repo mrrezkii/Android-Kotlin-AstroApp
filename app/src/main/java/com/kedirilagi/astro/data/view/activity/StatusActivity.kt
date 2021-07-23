@@ -31,6 +31,7 @@ class StatusActivity : AppCompatActivity(), KodeinAware {
     private val viewModelFactory: BerandaViewModelFactory by instance()
     private lateinit var viewModel: BerandaViewModel
     private val kondisi by lazy { intent.getBooleanExtra("kondisi", false) }
+    private lateinit var mediaPlayer: MediaPlayer
 
     private val binding: ActivityStatusBinding by lazy {
         ActivityStatusBinding.inflate(
@@ -58,7 +59,7 @@ class StatusActivity : AppCompatActivity(), KodeinAware {
     }
 
     private fun setupView() {
-        val mp = MediaPlayer.create(applicationContext, R.raw.alert)
+        mediaPlayer = MediaPlayer.create(applicationContext, R.raw.alert)
         binding.tvBack.setOnClickListener {
             if (isTaskRoot) {
                 startActivity(Intent(this@StatusActivity, MainActivity::class.java))
@@ -72,10 +73,10 @@ class StatusActivity : AppCompatActivity(), KodeinAware {
         if (!kondisi) {
             binding.layoutSafe.root.viewHide()
             binding.layoutEmergeny.root.viewShow()
-            mp.start()
-            mp.isLooping = true
+            mediaPlayer.start()
+            mediaPlayer.isLooping = true
         } else {
-            mp.stop()
+            mediaPlayer.stop()
         }
     }
 
@@ -99,5 +100,10 @@ class StatusActivity : AppCompatActivity(), KodeinAware {
         observe(viewModel.message) { message ->
             showToast(message)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer.stop()
     }
 }
