@@ -40,8 +40,11 @@ class RiwayatAktivitasAdapter(
             image.load(R.drawable.ic_pup)
                 .centerCrop()
                 .into(holder.binding.ivAktivitas)
+        } else if (aktivitas.nama_akvitias == "Pipis") {
+            image.load(R.drawable.ic_pup)
+                .centerCrop()
+                .into(holder.binding.ivAktivitas)
         }
-
     }
 
     override fun getItemCount() = aktivitass.size

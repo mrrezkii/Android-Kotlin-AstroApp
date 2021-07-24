@@ -40,6 +40,6 @@ class AstroApplication : Application(), KodeinAware {
         Firebase.database.setPersistenceEnabled(true)
         Mapbox.getInstance(this, BuildConfig.MAP_BOX_SECRET_KEY)
         PushNotifications.start(applicationContext, "664b9c5f-0e58-442f-a7e4-4f7c7e0c2b87")
-        PushNotifications.addDeviceInterest("hello")
+        PushNotifications.addDeviceInterest("aktivitas")
     }
 }
