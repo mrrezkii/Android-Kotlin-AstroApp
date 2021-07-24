@@ -8,6 +8,7 @@ import com.kedirilagi.astro.network.AstroRepository
 import com.kedirilagi.astro.storage.persistence.AstroDatabase
 import com.kedirilagi.astro.storage.preferences.AstroPreferences
 import com.mapbox.mapboxsdk.Mapbox
+import com.pusher.pushnotifications.PushNotifications
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -38,5 +39,7 @@ class AstroApplication : Application(), KodeinAware {
         Timber.plant(Timber.DebugTree())
         Firebase.database.setPersistenceEnabled(true)
         Mapbox.getInstance(this, BuildConfig.MAP_BOX_SECRET_KEY)
+        PushNotifications.start(applicationContext, "664b9c5f-0e58-442f-a7e4-4f7c7e0c2b87")
+        PushNotifications.addDeviceInterest("hello")
     }
 }
