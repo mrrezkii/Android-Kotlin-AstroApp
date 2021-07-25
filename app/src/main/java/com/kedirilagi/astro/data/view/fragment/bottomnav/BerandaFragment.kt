@@ -11,10 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.kedirilagi.astro.constant.artikelDummy
 import com.kedirilagi.astro.data.model.ArtikelModel
-import com.kedirilagi.astro.data.view.activity.DetailArtikelActivity
-import com.kedirilagi.astro.data.view.activity.JadwalActivity
-import com.kedirilagi.astro.data.view.activity.RiwayatAktivitasActivity
-import com.kedirilagi.astro.data.view.activity.StatusActivity
+import com.kedirilagi.astro.data.view.activity.*
 import com.kedirilagi.astro.data.view.adapter.AktivitasAdapter
 import com.kedirilagi.astro.data.view.adapter.ArtikelAdapter
 import com.kedirilagi.astro.data.viewmodel.BerandaViewModel
@@ -90,6 +87,9 @@ class BerandaFragment : Fragment() {
         binding.tvHari.text = hari.toString()
         binding.tvTanggal.text = currDate
 
+        binding.btnNotif.setOnClickListener {
+            startActivity(Intent(requireContext(), NotifikasiActivity::class.java))
+        }
 
         binding.layoutSafe.root.setOnClickListener {
             val intent = Intent(requireContext(), StatusActivity::class.java)
